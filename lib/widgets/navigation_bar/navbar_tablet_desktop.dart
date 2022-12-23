@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:yoku_web_app/widgets/navigation_bar/drower_element.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navbar_item.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navbar_logo.dart';
 
-class NavigationBarTabletDescktop extends StatelessWidget {
+class NavigationBarTabletDescktop extends StatelessWidget
+    with PreferredSizeWidget {
   const NavigationBarTabletDescktop(
       {super.key, this.automaticallyImplyLeading});
   final bool? automaticallyImplyLeading;
@@ -11,40 +13,56 @@ class NavigationBarTabletDescktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       automaticallyImplyLeading: automaticallyImplyLeading!,
       backgroundColor: Colors.transparent,
-      elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          const NavBarLogo(),
           ScreenTypeLayout(
             mobile: Column(
-              // mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                NavBarItem('Chi siamo', onTap: () {}
-                    // context.pushNamed(RouteConstants.aboute)
-                    //context.push(RouteConstants.aboute),
-                    ),
-                const SizedBox(
-                  height: 2,
-                ),
-                NavBarItem('Cosa Facciamo!', onTap: () {}),
+                NavBarItem('Prenota', onTap: () {}),
               ],
             ),
-            desktop: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                NavBarItem('Chi siamo', onTap: () {}),
-                const SizedBox(
-                  width: 5,
-                ),
-                NavBarItem('Cosa Facciamo!', onTap: () {}),
-              ],
+            desktop: SizedBox(
+              height: 80,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: 60,
+                    width: 100,
+                    child: Column(
+                      children: const [
+                        Text(
+                          'Prenota',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w100,
+                              fontSize: 25,
+                              letterSpacing: 3),
+                        ),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.3),
+                  const NavBarLogo(),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.3),
+                  const DrowerElement()
+                ],
+              ),
             ),
           )
         ],
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(80.0);
 }

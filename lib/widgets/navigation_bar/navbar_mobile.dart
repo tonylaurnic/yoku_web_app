@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navbar_logo.dart';
 
-class NavigationBarMobile extends StatelessWidget {
+class NavigationBarMobile extends StatelessWidget with PreferredSizeWidget {
   const NavigationBarMobile({
     Key? key,
   }) : super(key: key);
@@ -13,7 +13,6 @@ class NavigationBarMobile extends StatelessWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: SizedBox(
-        height: 80,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,4 +23,7 @@ class NavigationBarMobile extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(100.0);
 }

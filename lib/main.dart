@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart' as strategy;
+import 'package:yoku_web_app/constants/app_colors.dart';
 import 'package:yoku_web_app/router/router.dart';
 
 void main() {
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Open Sans'),
+        backgroundColor: backgroundColor,
+        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Julius Sans'),
       ),
       routeInformationParser: AppRouter().router.routeInformationParser,
       routerDelegate: AppRouter().router.routerDelegate,

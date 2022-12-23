@@ -14,17 +14,25 @@ class NavBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        width: 140,
-        height: 30,
-        padding: const EdgeInsets.all(3),
-        decoration: const BoxDecoration(
-          color: Colors.grey,
-        ),
-        child: Center(
-          child: Text(
-            title!,
-            style: const TextStyle(fontSize: 18),
+      child: Center(
+        child: SizedBox(
+          height: 60,
+          width: 100,
+          child: Column(
+            children: [
+              Text(
+                title!,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w100,
+                    fontSize: 25,
+                    letterSpacing: 3),
+              ),
+              // const Divider(
+              //   thickness: 1,
+              //   color: Colors.black,
+              // ),
+            ],
           ),
         ),
       ),

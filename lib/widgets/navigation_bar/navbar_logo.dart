@@ -6,10 +6,10 @@ class NavBarLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
-      width: 250,
+      height: 70,
       child: Image.asset(
-        'assets/logo5.png',
+        'images/logo_app.png',
+        color: Colors.black,
       ),
     );
   }
