@@ -15,24 +15,27 @@ class NavBarItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Center(
-        child: SizedBox(
-          height: 60,
-          width: 100,
-          child: Column(
-            children: [
-              Text(
-                title!,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w100,
-                    fontSize: 25,
-                    letterSpacing: 3),
-              ),
-              // const Divider(
-              //   thickness: 1,
-              //   color: Colors.black,
-              // ),
-            ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: SizedBox(
+            height: 60,
+            width: 110,
+            child: Column(
+              children: [
+                Text(
+                  title!,
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w100,
+                      fontSize: 22,
+                      letterSpacing: 3),
+                ),
+                const Divider(
+                  thickness: 1,
+                  color: Colors.black,
+                ),
+              ],
+            ),
           ),
         ),
       ),

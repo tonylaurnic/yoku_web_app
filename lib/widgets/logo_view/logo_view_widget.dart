@@ -4,23 +4,29 @@ class HomePictureWidget extends StatelessWidget {
   const HomePictureWidget({
     Key? key,
     required this.image,
+    required this.heigtContainer,
+    required this.widithContainer,
+    this.imageHeight,
   }) : super(key: key);
 
   final String image;
-
+  final double heigtContainer;
+  final double widithContainer;
+  final double? imageHeight;
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      height: MediaQuery.of(context).size.height * 0.7,
-      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: const BoxDecoration(
+          // borderRadius: BorderRadius.circular(12),
+          ),
+      height: heigtContainer,
+      width: widithContainer,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
+        // borderRadius: BorderRadius.circular(12),
         child: Image.asset(
           image,
+          height: imageHeight,
           fit: BoxFit.cover,
         ),
       ),

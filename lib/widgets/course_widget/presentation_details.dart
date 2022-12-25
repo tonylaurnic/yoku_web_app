@@ -6,9 +6,13 @@ class PresentationDetails extends StatelessWidget {
     Key? key,
     required this.title,
     required this.content,
+    required this.heigtContainer,
+    required this.widithContainer,
   }) : super(key: key);
   final String title;
   final String content;
+  final double heigtContainer;
+  final double widithContainer;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +34,8 @@ class PresentationDetails extends StatelessWidget {
 
         return Container(
           padding: const EdgeInsets.all(5),
-          width: 900,
-          height: 600,
+          width: widithContainer,
+          height: heigtContainer,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

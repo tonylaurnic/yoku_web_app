@@ -5,11 +5,14 @@ class NavBarLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 70,
-      child: Image.asset(
-        'images/logo_app.png',
-        color: Colors.black,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+      child: SizedBox(
+        height: 70,
+        child: Image.asset(
+          'images/logo_app.png',
+          color: Colors.black,
+        ),
       ),
     );
   }
