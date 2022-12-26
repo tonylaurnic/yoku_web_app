@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yoku_web_app/widgets/course_widget/presentation_details.dart';
-import 'package:yoku_web_app/widgets/logo_view/logo_view_widget.dart';
+import 'package:yoku_web_app/widgets/carousel/carousel_widget.dart';
+import 'package:yoku_web_app/widgets/course_widget/details_home_widget.dart';
+import 'package:yoku_web_app/widgets/logo_view/home_picture_widget.dart';
 
 class HomeContentDesktop extends StatelessWidget {
   const HomeContentDesktop({super.key});
@@ -59,6 +60,7 @@ class HomeContentDesktop extends StatelessWidget {
               ),
             ],
           ),
+          const CarouseWidget()
         ],
       ),
     );

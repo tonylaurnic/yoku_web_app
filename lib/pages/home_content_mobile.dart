@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:yoku_web_app/widgets/course_widget/presentation_details.dart';
-import 'package:yoku_web_app/widgets/logo_view/logo_view_widget.dart';
+import 'package:yoku_web_app/widgets/carousel/carousel_widget.dart';
+import 'package:yoku_web_app/widgets/course_widget/details_home_widget.dart';
+import 'package:yoku_web_app/widgets/logo_view/home_picture_widget.dart';
 
 class HomeContentMobile extends StatelessWidget {
   const HomeContentMobile({super.key});
@@ -48,6 +49,7 @@ class HomeContentMobile extends StatelessWidget {
                 imageHeight: 200,
               ),
             ),
+            const CarouseWidget()
           ],
         ),
       ),
