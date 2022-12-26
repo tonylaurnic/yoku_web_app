@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextButton extends StatelessWidget {
-  const TextButton({
+class TextButtonWidget extends StatelessWidget {
+  const TextButtonWidget({
     Key? key,
     required this.text,
   }) : super(key: key);
@@ -11,12 +11,13 @@ class TextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
-      style: const TextStyle(
-        fontWeight: FontWeight.w100,
-        height: 0.9,
-        fontSize: 32,
-      ),
+      text.toUpperCase(),
+      style: TextStyle(
+          fontWeight: FontWeight.w100,
+          letterSpacing: 12,
+          height: 0.9,
+          fontSize: 38,
+          color: Colors.grey.shade500),
     );
   }
 }

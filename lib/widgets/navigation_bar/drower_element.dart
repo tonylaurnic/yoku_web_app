@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:yoku_web_app/router/route_constants.dart';
 
 class DrowerElement extends StatefulWidget {
   const DrowerElement({
     Key? key,
-    // required this.builder,
   }) : super(key: key);
-
-  // final Widget Function(bool isHovered) builder;
 
   @override
   State<DrowerElement> createState() => _DrowerElementState();
@@ -14,17 +14,15 @@ class DrowerElement extends StatefulWidget {
 
 class _DrowerElementState extends State<DrowerElement> {
   bool isHovered = false;
-  bool isTap = false;
 
   @override
   Widget build(BuildContext context) {
-    final hovered = Matrix4.identity()..translate(0, 0, 0);
-    // final transform = isHovered ? hovered : Matrix4.identity();
+    final hovered = Matrix4.identity()..trace();
+    final transform = isHovered ? hovered : Matrix4.identity();
 
     void onEntered(bool isHovered) {
       setState(() {
         this.isHovered = isHovered;
-        isTap = isTap;
       });
     }
 
@@ -33,48 +31,31 @@ class _DrowerElementState extends State<DrowerElement> {
       child: InkWell(
         focusColor: Colors.transparent,
         onTap: () {
-          setState(() {
-            isTap = true;
-          });
+          context.push(RouteConstants.dialogbox);
         },
         child: MouseRegion(
           onEnter: (_) => onEntered(true),
           onExit: (_) => onEntered(false),
           child: AnimatedContainer(
             duration: const Duration(seconds: 5),
-            // transform: hovered,
-            // child: widget.builder(isHovered),
+            transform: hovered,
             child: SizedBox(
               width: 40,
               height: 50,
-              child: isTap
-                  ? Center(
-                      child: Text(
-                        'X',
-                        style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.w100,
-                            color: Colors.black.withOpacity(0.6)),
-                      ),
-                    )
-                  //? const Icon(
-                  //     size: 50,
-                  //     Icons.close,
-                  //   )
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Divider(
-                          thickness: 1,
-                          indent: isHovered ? 10 : 0,
-                          color: Colors.black,
-                        ),
-                        const Divider(
-                          thickness: 1,
-                          color: Colors.black,
-                        )
-                      ],
-                    ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Divider(
+                    thickness: 1,
+                    indent: isHovered ? 15 : 0,
+                    color: Colors.black,
+                  ),
+                  const Divider(
+                    thickness: 1,
+                    color: Colors.black,
+                  )
+                ],
+              ),
             ),
           ),
         ),

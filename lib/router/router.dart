@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yoku_web_app/pages/dialog_box/dialog_box.dart';
 import 'package:yoku_web_app/pages/home_page.dart';
 import 'package:yoku_web_app/router/route_constants.dart';
 
@@ -13,13 +14,13 @@ class AppRouter {
           builder: (context, state) => const HomePage(),
           // parentNavigatorKey: state.
         ),
-        // GoRoute(
-        //   name: RouteConstants.login,
-        //   path: '/login',
-        //   builder: (context, state) {
-        //     return const LoginView();
-        //   },
-        // ),
+        GoRoute(
+          name: RouteConstants.dialogbox,
+          path: '/dialog-box',
+          builder: (context, state) {
+            return const DialogBoxScreen();
+          },
+        ),
         // GoRoute(
         //   name: RouteConstants.signup,
         //   path: '/signup',

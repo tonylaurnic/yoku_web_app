@@ -11,9 +11,10 @@ class HomeContentDesktop extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          const SizedBox(height: 120),
           HomePictureWidget(
             heigtContainer: MediaQuery.of(context).size.height,
-            widithContainer: MediaQuery.of(context).size.height * 4,
+            widithContainer: MediaQuery.of(context).size.height * 1.7,
             image: 'images/home.JPG',
           ),
           PresentationDetails(

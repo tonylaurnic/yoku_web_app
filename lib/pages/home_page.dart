@@ -13,21 +13,37 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
+        extendBodyBehindAppBar: true,
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? const NavigationDrawer(isHome: true)
             : null,
-        body: CenteredView(
-          child: Column(
-            children: [
-              const MyNavigationBar(),
-              Expanded(
-                child: ScreenTypeLayout(
-                  mobile: const HomeContentMobile(),
-                  desktop: const HomeContentDesktop(),
+        body: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: CenteredView(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: SingleChildScrollView(
+                    child: Expanded(
+                      child: ScreenTypeLayout(
+                        mobile: const HomeContentMobile(),
+                        desktop: const HomeContentDesktop(),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+            const Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: MyNavigationBar(),
+            ),
+          ],
         ),
       ),
     );

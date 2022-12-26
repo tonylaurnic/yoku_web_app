@@ -6,6 +6,7 @@ import 'package:yoku_web_app/widgets/navigation_bar/navbar_logo.dart';
 class NavigationBarTabletDescktop extends StatelessWidget {
   const NavigationBarTabletDescktop(
       {super.key, this.automaticallyImplyLeading});
+
   final bool? automaticallyImplyLeading;
 
   @override
@@ -13,15 +14,15 @@ class NavigationBarTabletDescktop extends StatelessWidget {
     return Row(
       children: <Widget>[
         Container(
-          height: 120,
           color: Colors.white.withOpacity(0.9),
+          height: 120,
           width: MediaQuery.of(context).size.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               NavBarItem('PRENOTA', onTap: () {}),
               const NavBarLogo(),
-              const DrowerElement()
+              const DrowerElement(),
             ],
           ),
         ),
