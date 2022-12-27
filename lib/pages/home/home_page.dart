@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:yoku_web_app/pages/home_content_desktop.dart';
-import 'package:yoku_web_app/pages/home_content_mobile.dart';
+import 'package:yoku_web_app/pages/home/home_content_desktop.dart';
+import 'package:yoku_web_app/pages/home/home_content_mobile.dart';
+
 import 'package:yoku_web_app/widgets/centred_view.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navigation_bar.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';

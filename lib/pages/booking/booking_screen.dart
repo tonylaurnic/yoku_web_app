@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yoku_web_app/models/date_model.dart';
-import 'package:yoku_web_app/models/lanch_time.dart';
 import 'package:yoku_web_app/models/time_model.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
@@ -210,75 +209,74 @@ class _BookingScreenState extends State<BookingScreen> {
                     Text('Scieglie l\'orario',
                         style: Theme.of(context).textTheme.headline6!),
 
-                    currentTime == openTime
-                        ? Expanded(
-                            child: GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                childAspectRatio: 5,
-                              ),
-                              itemCount: LanchTime.times.length,
-                              itemBuilder: (context, index) {
-                                return Card(
-                                  child: Center(
-                                    child: TextButton(
-                                      onPressed: () {
-                                        setState(
-                                          () {
-                                            selectedTime =
-                                                LanchTime.times[index].value;
+                    // currentTime == openTime
+                    //     ? Expanded(
+                    //         child: GridView.builder(
+                    //           gridDelegate:
+                    //               const SliverGridDelegateWithFixedCrossAxisCount(
+                    //             crossAxisCount: 3,
+                    //             childAspectRatio: 5,
+                    //           ),
+                    //           itemCount: LanchTime.times.length,
+                    //           itemBuilder: (context, index) {
+                    //             return Card(
+                    //               child: Center(
+                    //                 child: TextButton(
+                    //                   onPressed: () {
+                    //                     setState(
+                    //                       () {
+                    //                         selectedTime =
+                    //                             LanchTime.times[index].value;
 
-                                            print(selectedTime.toString());
-                                          },
-                                        );
-                                      },
-                                      child: Text(
-                                        LanchTime.times[index].value,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline6,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          )
-                        : Expanded(
-                            child: GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                childAspectRatio: 5,
-                              ),
-                              itemCount: TimeModel.times.length,
-                              itemBuilder: (context, index) {
-                                return Card(
-                                  child: Center(
-                                    child: TextButton(
-                                      onPressed: () {
-                                        setState(
-                                          () {
-                                            selectedTime =
-                                                TimeModel.times[index].value;
+                    //                         print(selectedTime.toString());
+                    //                       },
+                    //                     );
+                    //                   },
+                    //                   child: Text(
+                    //                     LanchTime.times[index].value,
+                    //                     style: Theme.of(context)
+                    //                         .textTheme
+                    //                         .headline6,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             );
+                    //           },
+                    //         ),
+                    //       )
+                    //     :
+                    Expanded(
+                      child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          childAspectRatio: 5,
+                        ),
+                        itemCount: TimeModel.times.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: Center(
+                              child: TextButton(
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      selectedTime =
+                                          TimeModel.times[index].value;
 
-                                            print(selectedTime.toString());
-                                          },
-                                        );
-                                      },
-                                      child: Text(
-                                        TimeModel.times[index].value,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline6,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
+                                      print(selectedTime.toString());
+                                    },
+                                  );
+                                },
+                                child: Text(
+                                  TimeModel.times[index].value,
+                                  style: Theme.of(context).textTheme.headline6,
+                                ),
+                              ),
                             ),
-                          ),
+                          );
+                        },
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 100),
                       child: Column(
