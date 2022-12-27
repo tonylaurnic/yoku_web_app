@@ -10,17 +10,17 @@ class TimeModel {
   });
 
   static List<TimeModel> times = [
-    TimeModel(
-      id: '1',
-      value: '18:00',
-      time: DateTime(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day,
-        18,
-        0,
-      ),
-    ),
+    // TimeModel(
+    //   id: '1',
+    //   value: '18:00',
+    //   time: DateTime(
+    //     DateTime.now().year,
+    //     DateTime.now().month,
+    //     DateTime.now().day,
+    //     18,
+    //     0,
+    //   ),
+    // ),
     TimeModel(
       id: '2',
       value: '18:30',
@@ -120,17 +120,17 @@ class TimeModel {
         30,
       ),
     ),
-    TimeModel(
-      id: '11',
-      value: '23:00',
-      time: DateTime(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day,
-        23,
-        00,
-      ),
-    ),
+    // TimeModel(
+    //   id: '11',
+    //   value: '23:00',
+    //   time: DateTime(
+    //     DateTime.now().year,
+    //     DateTime.now().month,
+    //     DateTime.now().day,
+    //     23,
+    //     00,
+    //   ),
+    // ),
   ];
 }
 

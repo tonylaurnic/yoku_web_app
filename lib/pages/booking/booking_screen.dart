@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yoku_web_app/models/date_model.dart';
@@ -29,8 +28,8 @@ class _BookingScreenState extends State<BookingScreen> {
     '8 persone',
   ];
 
-  dynamic newTime = DateTime.now();
-  dynamic currentTime = DateFormat.jm();
+  dynamic openTime;
+  dynamic currentTime;
 
   String? selectedValue;
   String? selectedDay;
@@ -40,6 +39,8 @@ class _BookingScreenState extends State<BookingScreen> {
 
   @override
   void initState() {
+    openTime = DateTime.parse("11:00:00");
+    currentTime = DateTime.now();
     super.initState();
   }
 
@@ -52,7 +53,7 @@ class _BookingScreenState extends State<BookingScreen> {
         toEmail: 'tonylaurnic@gmail.com',
         subject: 'Prenotazione a nome ${_controllerName.text}',
         body:
-            'Prenotazione ricevuta $newTime, \nper $selectedValue, \ngiorno: $selectedDay, \norario: $selectedTime, \nNome: ${_controllerName.text}, \nTelefono: ${_controllerPhone.text}, \nemail: ${_controllerEmail.text},');
+            'Prenotazione ricevuta $currentTime, \nper $selectedValue, \ngiorno: $selectedDay, \norario: $selectedTime, \nNome: ${_controllerName.text}, \nTelefono: ${_controllerPhone.text}, \nemail: ${_controllerEmail.text},');
 
     try {
       await launchUrl(
@@ -107,12 +108,12 @@ class _BookingScreenState extends State<BookingScreen> {
                   context.pop();
                 },
                 child: SizedBox(
-                  height: 80,
+                  height: 30,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 40.0, top: 20),
+                        padding: const EdgeInsets.only(right: 40.0, top: 0),
                         child: Text(
                           'X',
                           style: TextStyle(
@@ -128,75 +129,80 @@ class _BookingScreenState extends State<BookingScreen> {
               const TextButtonWidget(text: 'prenota'),
               Container(
                 color: Colors.grey.shade300,
-                height: 500,
+                height: 600,
                 width: 600,
                 child: Column(
                   children: [
-                    DropdownButtonFormField(
-                      iconSize: 20,
-                      decoration: const InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            style: BorderStyle.solid,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 100, right: 100),
+                      child: DropdownButtonFormField(
+                        iconSize: 20,
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            gapPadding: 4,
+                            borderSide: BorderSide(
+                              style: BorderStyle.solid,
+                            ),
                           ),
+                          hintText: '              PERSONE DA PRENOTARE',
+                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                          fillColor: Colors.grey,
                         ),
-                        hintText: '  PARTY SIZE',
-                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                        fillColor: Colors.grey,
-                      ),
-                      items: items.map((item) {
-                        return DropdownMenuItem(
-                            value: item,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Text(item),
-                            ));
-                      }).toList(),
-                      value: selectedValue,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedValue = value as String;
-                          print(selectedValue);
-                        });
-                      },
-                      icon: const Icon(
-                        Icons.person,
+                        items: items.map(
+                          (item) {
+                            return DropdownMenuItem(
+                              value: item,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(item),
+                              ),
+                            );
+                          },
+                        ).toList(),
+                        value: selectedValue,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedValue = value as String;
+                            print(selectedValue);
+                          });
+                        },
+                        icon: const Icon(
+                          Icons.person,
+                        ),
                       ),
                     ),
 
                     Text('Scieglie il giorno',
                         style: Theme.of(context).textTheme.headline6!),
                     Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 10, bottom: 10),
-                        child: GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            childAspectRatio: 5,
-                          ),
-                          itemCount: DateModel.days.length,
-                          itemBuilder: (context, index) {
-                            return Card(
-                              child: Center(
-                                child: TextButton(
-                                  onPressed: () {
-                                    setState(() {
+                      child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          childAspectRatio: 5,
+                        ),
+                        itemCount: DateModel.days.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: Center(
+                              child: TextButton(
+                                onPressed: () {
+                                  setState(
+                                    () {
                                       selectedDay = DateModel.days[index].value;
 
                                       print(selectedDay.toString());
-                                    });
-                                  },
-                                  child: Text(
-                                    DateModel.days[index].value,
-                                    style:
-                                        Theme.of(context).textTheme.headline6,
-                                  ),
+                                    },
+                                  );
+                                },
+                                child: Text(
+                                  DateModel.days[index].value,
+                                  style: Theme.of(context).textTheme.headline6,
                                 ),
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          );
+                        },
                       ),
                     ),
 
@@ -204,84 +210,79 @@ class _BookingScreenState extends State<BookingScreen> {
                     Text('Scieglie l\'orario',
                         style: Theme.of(context).textTheme.headline6!),
 
-                    currentTime != 15
+                    currentTime == openTime
                         ? Expanded(
-                            child: Container(
-                              margin:
-                                  const EdgeInsets.only(top: 10, bottom: 10),
-                              child: GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  childAspectRatio: 5,
-                                ),
-                                itemCount: LanchTime.times.length,
-                                itemBuilder: (context, index) {
-                                  return Card(
-                                    child: Center(
-                                      child: TextButton(
-                                        onPressed: () {
-                                          setState(() {
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                childAspectRatio: 5,
+                              ),
+                              itemCount: LanchTime.times.length,
+                              itemBuilder: (context, index) {
+                                return Card(
+                                  child: Center(
+                                    child: TextButton(
+                                      onPressed: () {
+                                        setState(
+                                          () {
                                             selectedTime =
                                                 LanchTime.times[index].value;
 
                                             print(selectedTime.toString());
-                                          });
-                                        },
-                                        child: Text(
-                                          LanchTime.times[index].value,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline6,
-                                        ),
+                                          },
+                                        );
+                                      },
+                                      child: Text(
+                                        LanchTime.times[index].value,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline6,
                                       ),
                                     ),
-                                  );
-                                },
-                              ),
+                                  ),
+                                );
+                              },
                             ),
                           )
                         : Expanded(
-                            child: Container(
-                              margin:
-                                  const EdgeInsets.only(top: 10, bottom: 10),
-                              child: GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  childAspectRatio: 5,
-                                ),
-                                itemCount: TimeModel.times.length,
-                                itemBuilder: (context, index) {
-                                  return Card(
-                                    child: Center(
-                                      child: TextButton(
-                                        onPressed: () {
-                                          setState(() {
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                childAspectRatio: 5,
+                              ),
+                              itemCount: TimeModel.times.length,
+                              itemBuilder: (context, index) {
+                                return Card(
+                                  child: Center(
+                                    child: TextButton(
+                                      onPressed: () {
+                                        setState(
+                                          () {
                                             selectedTime =
                                                 TimeModel.times[index].value;
 
                                             print(selectedTime.toString());
-                                          });
-                                        },
-                                        child: Text(
-                                          TimeModel.times[index].value,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline6,
-                                        ),
+                                          },
+                                        );
+                                      },
+                                      child: Text(
+                                        TimeModel.times[index].value,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline6,
                                       ),
                                     ),
-                                  );
-                                },
-                              ),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 100),
                       child: Column(
                         children: [
-                          //
                           TextField(
                             controller: _controllerName,
                             keyboardType: TextInputType.text,
@@ -374,22 +375,11 @@ class _BookingScreenState extends State<BookingScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
             ],
           ),
         ),
       ),
     );
   }
-}
-
-class EmailUtils {
-  /// Example
-  /// ```dart
-  /// await EmailUtils.launchEmailSubmission(
-  ///       toEmail: 'info@catfacts.co',
-  ///       subject: 'I love this app',
-  ///       body: 'Your feedback below: \n');
-  /// ```
-
 }
