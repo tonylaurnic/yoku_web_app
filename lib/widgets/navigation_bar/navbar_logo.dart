@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class NavBarLogo extends StatelessWidget {
-  const NavBarLogo({super.key});
-
+  const NavBarLogo({
+    this.isMobil = false,
+  });
+  final bool isMobil;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +13,7 @@ class NavBarLogo extends StatelessWidget {
         vertical: 10,
       ),
       child: SizedBox(
-        height: 70,
+        height: isMobil ? 70 : 100,
         child: Image.asset(
           'images/logo_app.png',
           color: Colors.black,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:yoku_web_app/router/route_constants.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
 
@@ -54,7 +55,9 @@ class DialogBoxScreen extends StatelessWidget {
                 ),
               ),
               const TextButtonWidget(text: 'Home'),
-              const TextButtonWidget(text: 'prenota'),
+              TextButtonWidget(
+                  text: 'prenota',
+                  onPressed: () => context.push(RouteConstants.booking)),
               const TextButtonWidget(text: 'filosofia'),
               const TextButtonWidget(text: 'menu'),
               const TextButtonWidget(text: 'contatti'),

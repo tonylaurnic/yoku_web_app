@@ -17,8 +17,9 @@ class _CarouseWidgetState extends State<CarouseWidget> {
       children: <Widget>[
         CarouselSlider(
           options: CarouselOptions(
-            height: 600.0,
+            height: 400.0,
             viewportFraction: 0.8,
+            animateToClosest: true,
             autoPlay: true,
             autoPlayInterval: const Duration(seconds: 6),
             autoPlayAnimationDuration: const Duration(seconds: 2),

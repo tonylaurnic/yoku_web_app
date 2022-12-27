@@ -20,17 +20,17 @@ class PresentationDetails extends StatelessWidget {
       builder: (context, sizingInformation) {
         var textAlingment =
             sizingInformation.deviceScreenType == DeviceScreenType.desktop
-                ? TextAlign.center
+                ? TextAlign.right
                 : TextAlign.center;
 
         double titleSize =
             sizingInformation.deviceScreenType == DeviceScreenType.mobile
                 ? 30
-                : 70;
+                : 50;
         double descriptionSize =
             sizingInformation.deviceScreenType == DeviceScreenType.mobile
-                ? 16
-                : 22;
+                ? 14
+                : 20;
 
         return Container(
           padding: const EdgeInsets.all(5),

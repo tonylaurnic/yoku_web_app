@@ -42,7 +42,7 @@ class _NavBarItemState extends State<NavBarItem> {
                     style: const TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w100,
-                        fontSize: 22,
+                        fontSize: 18,
                         letterSpacing: 3),
                   ),
                   Divider(

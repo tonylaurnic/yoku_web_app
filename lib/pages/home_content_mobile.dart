@@ -15,7 +15,7 @@ class HomeContentMobile extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 120),
+            const SizedBox(height: 150),
             HomePictureWidget(
               heigtContainer: MediaQuery.of(context).size.height,
               widithContainer: MediaQuery.of(context).size.height,
@@ -49,7 +49,10 @@ class HomeContentMobile extends StatelessWidget {
                 imageHeight: 200,
               ),
             ),
-            const CarouseWidget()
+            const CarouseWidget(),
+            const SizedBox(
+              height: 200,
+            ),
           ],
         ),
       ),

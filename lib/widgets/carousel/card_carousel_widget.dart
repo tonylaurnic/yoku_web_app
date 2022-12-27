@@ -13,14 +13,11 @@ class CardcarouselWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SizedBox(
-        height: 600,
-        width: 1200,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            image.imageUrl,
-            fit: BoxFit.cover,
-          ),
+        height: 400,
+        width: 800,
+        child: Image.asset(
+          image.imageUrl,
+          fit: BoxFit.fitWidth,
         ),
       ),
     );
