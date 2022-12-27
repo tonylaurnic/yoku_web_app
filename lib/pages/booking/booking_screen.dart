@@ -38,8 +38,8 @@ class _BookingScreenState extends State<BookingScreen> {
 
   @override
   void initState() {
-    openTime = DateTime.parse("11:00:00");
-    currentTime = DateTime.now();
+    // openTime = DateTime.parse("11:00:00");
+    // currentTime = DateTime.now();
     super.initState();
   }
 
