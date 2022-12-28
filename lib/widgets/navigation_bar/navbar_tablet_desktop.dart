@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yoku_web_app/constants/app_colors.dart';
 import 'package:yoku_web_app/router/route_constants.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/drower_element.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navbar_item.dart';
@@ -16,8 +17,8 @@ class NavigationBarTabletDescktop extends StatelessWidget {
     return Row(
       children: <Widget>[
         Container(
-          color: Colors.white.withOpacity(0.9),
-          height: 160,
+          color: backgroundColor,
+          height: 200,
           width: MediaQuery.of(context).size.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
