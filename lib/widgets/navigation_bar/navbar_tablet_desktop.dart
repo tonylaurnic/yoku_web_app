@@ -14,24 +14,20 @@ class NavigationBarTabletDescktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Container(
-          color: backgroundColor,
-          height: 200,
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              NavBarItem('PRENOTA', onTap: () {
-                context.push(RouteConstants.booking);
-              }),
-              const NavBarLogo(),
-              const DrowerElement(),
-            ],
-          ),
-        ),
-      ],
+    return Container(
+      color: backgroundColor.withOpacity(0.8),
+      height: 120,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          NavBarItem('PRENOTA', onTap: () {
+            context.push(RouteConstants.booking);
+          }),
+          const NavBarLogo(),
+          const DrowerElement(),
+        ],
+      ),
     );
   }
 }
