@@ -18,7 +18,7 @@ class HomeContentDesktop extends StatelessWidget {
             HomePictureWidget(
               heigtContainer: MediaQuery.of(context).size.height * 0.5,
               widithContainer: MediaQuery.of(context).size.height * 1.7,
-              image: 'images/home.JPG',
+              image: 'assets/home.JPG',
             ),
             PresentationDetails(
               heigtContainer: MediaQuery.of(context).size.height * 0.5,
@@ -34,7 +34,7 @@ class HomeContentDesktop extends StatelessWidget {
                   child: HomePictureWidget(
                     heigtContainer: MediaQuery.of(context).size.height,
                     widithContainer: MediaQuery.of(context).size.width * 0.4,
-                    image: 'images/home2.jpg',
+                    image: 'assets/home2.jpg',
                   ),
                 ),
                 Padding(
@@ -56,7 +56,7 @@ class HomeContentDesktop extends StatelessWidget {
                   child: HomePictureWidget(
                     heigtContainer: MediaQuery.of(context).size.height,
                     widithContainer: MediaQuery.of(context).size.height * 2,
-                    image: 'images/plate.JPG',
+                    image: 'assets/plate.JPG',
                     imageHeight: 200,
                   ),
                 ),

@@ -21,7 +21,7 @@ class HomeContentMobile extends StatelessWidget {
                 HomePictureWidget(
                   heigtContainer: MediaQuery.of(context).size.height,
                   widithContainer: MediaQuery.of(context).size.height,
-                  image: 'images/home.JPG',
+                  image: 'assets/home.JPG',
                 ),
                 PresentationDetails(
                   heigtContainer: MediaQuery.of(context).size.height,
@@ -33,7 +33,7 @@ class HomeContentMobile extends StatelessWidget {
                 HomePictureWidget(
                   heigtContainer: MediaQuery.of(context).size.height,
                   widithContainer: MediaQuery.of(context).size.height,
-                  image: 'images/home2.jpg',
+                  image: 'assets/home2.jpg',
                 ),
                 PresentationDetails(
                   heigtContainer: MediaQuery.of(context).size.height * 0.9,
@@ -47,7 +47,7 @@ class HomeContentMobile extends StatelessWidget {
                   child: HomePictureWidget(
                     heigtContainer: MediaQuery.of(context).size.height,
                     widithContainer: MediaQuery.of(context).size.height,
-                    image: 'images/plate.JPG',
+                    image: 'assets/plate.JPG',
                     imageHeight: 200,
                   ),
                 ),

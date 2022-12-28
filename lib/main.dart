@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart' as strategy;
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:yoku_web_app/constants/app_colors.dart';
 import 'package:yoku_web_app/router/router.dart';
 
-void main() {
+Future<void> main() async {
   strategy.usePathUrlStrategy();
-  runApp(const MyApp());
+
+  await SentryFlutter.init(
+      (options) => options.dsn = 'https://<key>@sentry.io/<project>',
+      appRunner: () => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

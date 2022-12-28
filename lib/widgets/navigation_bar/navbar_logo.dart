@@ -15,7 +15,7 @@ class NavBarLogo extends StatelessWidget {
       child: SizedBox(
         height: isMobil ? 70 : 100,
         child: Image.asset(
-          'images/logo_app.png',
+          'assets/logo_app.png',
           color: Colors.black,
         ),
       ),
