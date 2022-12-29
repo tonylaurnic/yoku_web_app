@@ -7,16 +7,20 @@ class HomePictureWidget extends StatelessWidget {
     required this.heigtContainer,
     required this.widithContainer,
     this.imageHeight,
+    this.topPadding = 0,
   }) : super(key: key);
 
   final String image;
   final double heigtContainer;
   final double widithContainer;
   final double? imageHeight;
+  final double topPadding;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(5),
+      padding: EdgeInsets.only(
+        top: topPadding,
+      ),
       decoration: const BoxDecoration(
           // borderRadius: BorderRadius.circular(12),
           ),

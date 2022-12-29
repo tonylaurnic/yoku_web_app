@@ -31,7 +31,7 @@ class _NavBarItemState extends State<NavBarItem> {
         onTap: widget.onTap,
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding: const EdgeInsets.only(left: 30.0, top: 50),
             child: SizedBox(
               height: 60,
               width: 110,

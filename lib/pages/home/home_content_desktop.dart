@@ -16,7 +16,8 @@ class HomeContentDesktop extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             HomePictureWidget(
-              heigtContainer: MediaQuery.of(context).size.height * 0.5,
+              topPadding: 120,
+              heigtContainer: MediaQuery.of(context).size.height * 0.8,
               widithContainer: MediaQuery.of(context).size.height * 1.7,
               image: 'assets/home.JPG',
             ),

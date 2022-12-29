@@ -71,10 +71,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Julius_Sans_one
+    - family: MPLUS1p
       fonts:
-        - asset: images/Julius_Sans_One/JuliusSansOne-Regular.ttf
-          weight: 100
+        - asset: assets/M_PLUS_1p/MPLUS1p-Thin.ttf
+        - weight: 100
+       
+        
+      
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

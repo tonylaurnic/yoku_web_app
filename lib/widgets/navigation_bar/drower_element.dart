@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-import 'package:yoku_web_app/router/route_constants.dart';
 
 class DrowerElement extends StatefulWidget {
   const DrowerElement({
     Key? key,
+    required this.onPressed,
   }) : super(key: key);
 
+  final Function() onPressed;
+
   @override
-  State<DrowerElement> createState() => _DrowerElementState();
+  State<DrowerElement> createState() {
+    return _DrowerElementState(onPressed);
+  }
 }
 
 class _DrowerElementState extends State<DrowerElement>
     with TickerProviderStateMixin {
+  final Function() onPressed;
+
   bool isHovered = false;
   double _size = 0;
+
+  _DrowerElementState(this.onPressed);
   @override
   Widget build(BuildContext context) {
     void onEntered() {
@@ -29,9 +35,7 @@ class _DrowerElementState extends State<DrowerElement>
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: InkWell(
         focusColor: Colors.transparent,
-        onTap: () {
-          context.push(RouteConstants.dialogbox);
-        },
+        onTap: onPressed,
         child: MouseRegion(
           onEnter: (_) => onEntered(),
           onExit: (_) => onEntered(),

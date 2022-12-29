@@ -20,7 +20,7 @@ class PresentationDetails extends StatelessWidget {
       builder: (context, sizingInformation) {
         var textAlingment =
             sizingInformation.deviceScreenType == DeviceScreenType.desktop
-                ? TextAlign.right
+                ? TextAlign.center
                 : TextAlign.center;
 
         double titleSize =
@@ -42,8 +42,9 @@ class PresentationDetails extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
+                  color: Colors.black,
                   fontWeight: FontWeight.w100,
-                  height: 0.9,
+                  height: 1.2,
                   fontSize: titleSize,
                 ),
                 textAlign: textAlingment,
@@ -54,9 +55,9 @@ class PresentationDetails extends StatelessWidget {
               Text(
                 content,
                 style: TextStyle(
+                  color: Colors.black,
                   letterSpacing: 3,
                   fontSize: descriptionSize,
-                  fontWeight: FontWeight.w100,
                   height: 1.7,
                 ),
                 textAlign: textAlingment,

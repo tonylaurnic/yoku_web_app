@@ -17,8 +17,8 @@ class HomeContentMobile extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
                 HomePictureWidget(
+                  topPadding: 120,
                   heigtContainer: MediaQuery.of(context).size.height,
                   widithContainer: MediaQuery.of(context).size.height,
                   image: 'assets/home.JPG',

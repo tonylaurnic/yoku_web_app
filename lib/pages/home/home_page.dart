@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:yoku_web_app/constants/app_colors.dart';
 import 'package:yoku_web_app/pages/home/home_content_desktop.dart';
 import 'package:yoku_web_app/pages/home/home_content_mobile.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
@@ -19,17 +18,23 @@ class HomePage extends StatelessWidget {
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? const NavigationDrawer(isHome: true)
             : null,
-        backgroundColor: backgroundColor,
-        body: CenteredView(
-          child: Column(children: [
-            const MyNavigationBar(),
-            Expanded(
-              child: ScreenTypeLayout(
-                mobile: const HomeContentMobile(),
-                desktop: const HomeContentDesktop(),
+        backgroundColor: Colors.white.withOpacity(0.7),
+        body: Stack(
+          children: [
+            CenteredView(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: ScreenTypeLayout(
+                      mobile: const HomeContentMobile(),
+                      desktop: const HomeContentDesktop(),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ]),
+            const MyNavigationBar(),
+          ],
         ),
       ),
     );

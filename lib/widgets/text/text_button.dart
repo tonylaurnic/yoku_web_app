@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class TextButtonWidget extends StatelessWidget {
   const TextButtonWidget({
@@ -12,17 +13,32 @@ class TextButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Text(
-        text.toUpperCase(),
-        style: TextStyle(
-            fontWeight: FontWeight.w200,
-            letterSpacing: 20,
-            height: 0.9,
-            fontSize: 30,
-            color: Colors.grey.shade500),
-      ),
-    );
+    return ResponsiveBuilder(builder: (context, sizingInformation) {
+      var textAlingment =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? TextAlign.center
+              : TextAlign.center;
+
+      double titleSize =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? 30
+              : 50;
+      double descriptionSize =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? 18
+              : 30;
+
+      return GestureDetector(
+        onTap: onPressed,
+        child: Text(
+          text.toUpperCase(),
+          style: TextStyle(
+              letterSpacing: 20,
+              height: 0.9,
+              fontSize: descriptionSize,
+              color: Colors.black),
+        ),
+      );
+    });
   }
 }

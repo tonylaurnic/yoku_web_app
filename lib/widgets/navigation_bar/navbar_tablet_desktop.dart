@@ -25,7 +25,9 @@ class NavigationBarTabletDescktop extends StatelessWidget {
             context.push(RouteConstants.booking);
           }),
           const NavBarLogo(),
-          const DrowerElement(),
+          DrowerElement(
+            onPressed: () => context.push(RouteConstants.dialogbox),
+          ),
         ],
       ),
     );

@@ -20,10 +20,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Yoku Sushi',
       theme: ThemeData(
         backgroundColor: backgroundColor,
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Julius Sans'),
+        fontFamily: "MPLUS1p",
+
+        // Theme.of(context).textTheme.apply(),
       ),
       routeInformationParser: AppRouter().router.routeInformationParser,
       routerDelegate: AppRouter().router.routerDelegate,
