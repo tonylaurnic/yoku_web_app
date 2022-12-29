@@ -6,6 +6,15 @@ import 'package:yoku_web_app/router/router.dart';
 
 Future<void> main() async {
   strategy.usePathUrlStrategy();
+//  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+//     systemNavigationBarColor: Colors.blue, // navigation bar color
+//     statusBarColor: Colors.pink, // status bar color
+//     statusBarBrightness: Brightness.dark, //status bar brigtness
+//     statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
+//     systemNavigationBarDividerColor:
+//         Colors.greenAccent, //Navigation bar divider color
+//     systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
+//   ));
 
   await SentryFlutter.init(
       (options) => options.dsn = 'https://<key>@sentry.io/<project>',
@@ -22,11 +31,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Yoku Sushi',
       theme: ThemeData(
-        backgroundColor: backgroundColor,
-        fontFamily: "MPLUS1p",
+          backgroundColor: backgroundColor,
+          fontFamily: "MPLUS1p",
+          primaryColor: backgroundColor
 
-        // Theme.of(context).textTheme.apply(),
-      ),
+          // Theme.of(context).textTheme.apply(),
+          ),
       routeInformationParser: AppRouter().router.routeInformationParser,
       routerDelegate: AppRouter().router.routerDelegate,
     );

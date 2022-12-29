@@ -25,7 +25,7 @@ class TextButtonWidget extends StatelessWidget {
               : 50;
       double descriptionSize =
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
-              ? 18
+              ? 16
               : 30;
 
       return GestureDetector(
@@ -33,7 +33,7 @@ class TextButtonWidget extends StatelessWidget {
         child: Text(
           text.toUpperCase(),
           style: TextStyle(
-              letterSpacing: 20,
+              letterSpacing: 17,
               height: 0.9,
               fontSize: descriptionSize,
               color: Colors.black),

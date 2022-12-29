@@ -5,7 +5,9 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yoku_web_app/models/date_model.dart';
 import 'package:yoku_web_app/models/time_model.dart';
+import 'package:yoku_web_app/router/route_constants.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
+import 'package:yoku_web_app/widgets/textform/custom_text_form_field.dart';
 
 class BookingDesktop extends StatefulWidget {
   const BookingDesktop({super.key});
@@ -32,7 +34,8 @@ class _BookingDesktopState extends State<BookingDesktop> {
   String? selectedValue;
   String? selectedDay;
   String? selectedTime;
-  bool isSelected = false;
+  int isSelecteH = -1;
+  int isSelectedDay = -1;
   bool timeSelected = false;
 
   @override
@@ -102,7 +105,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
           children: [
             InkWell(
               onTap: () {
-                context.pop();
+                context.push(RouteConstants.home);
               },
               child: SizedBox(
                 height: 80,
@@ -176,16 +179,21 @@ class _BookingDesktopState extends State<BookingDesktop> {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
-                        childAspectRatio: 5,
+                        childAspectRatio: 4,
                       ),
                       itemCount: DateModel.days.length,
                       itemBuilder: (context, index) {
+                        final isSelected = isSelectedDay == index;
                         return Card(
+                          color: isSelected
+                              ? Colors.blueGrey.shade100
+                              : Colors.white,
                           child: Center(
                             child: TextButton(
                               onPressed: () {
                                 setState(
                                   () {
+                                    isSelectedDay = index;
                                     selectedDay = DateModel.days[index].value;
 
                                     print(selectedDay.toString());
@@ -248,16 +256,21 @@ class _BookingDesktopState extends State<BookingDesktop> {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
-                        childAspectRatio: 5,
+                        childAspectRatio: 4.5,
                       ),
                       itemCount: TimeModel.times.length,
                       itemBuilder: (context, index) {
+                        final isSelected = isSelecteH == index;
                         return Card(
+                          color: isSelected
+                              ? Colors.blueGrey.shade100
+                              : Colors.white,
                           child: Center(
                             child: TextButton(
                               onPressed: () {
                                 setState(
                                   () {
+                                    isSelecteH = index;
                                     selectedTime = TimeModel.times[index].value;
 
                                     print(selectedTime.toString());
@@ -275,99 +288,44 @@ class _BookingDesktopState extends State<BookingDesktop> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 100, vertical: 5),
                     child: Column(
                       children: [
-                        TextField(
-                          controller: _controllerName,
-                          keyboardType: TextInputType.text,
-                          maxLines: 1,
-                          decoration: InputDecoration(
-                              fillColor: Colors.black,
-                              focusColor: Colors.black,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50),
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                              ),
-                              labelText: 'Nome e cognome',
-                              labelStyle: const TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                              hintText: "Nome e cognome",
-                              hintStyle: const TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(50))),
+                        CustomTextField(
+                          controllerPhone: _controllerName,
+                          hintText: 'Nome e cognome',
+                          labelText: 'Nome e cognome',
                         ),
                         //
 
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        TextField(
-                          controller: _controllerPhone,
-                          keyboardType: TextInputType.streetAddress,
-                          maxLines: 1,
-                          decoration: InputDecoration(
-                              fillColor: Colors.black,
-                              focusColor: Colors.black,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50),
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                              ),
-                              labelText: 'Telefono',
-                              labelStyle: const TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                              hintText: "Telefono",
-                              hintStyle: const TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(50))),
+                        const SizedBox(height: 5),
+                        CustomTextField(
+                          controllerPhone: _controllerPhone,
+                          hintText: 'Telefono',
+                          labelText: 'Telefono',
                         ),
                         const SizedBox(
                           height: 5,
                         ),
-                        TextField(
-                          controller: _controllerEmail,
-                          keyboardType: TextInputType.streetAddress,
-                          maxLines: 1,
-                          decoration: InputDecoration(
-                              fillColor: Colors.black,
-                              focusColor: Colors.black,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50),
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                              ),
-                              labelText: 'Email',
-                              labelStyle: const TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                              hintText: "Email",
-                              hintStyle: const TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(50))),
+                        CustomTextField(
+                          controllerPhone: _controllerEmail,
+                          hintText: 'Email',
+                          labelText: 'Email',
                         ),
                         const SizedBox(
                           height: 5,
                         ),
                         TextButton(
-                            onPressed: () {
-                              launchEmailSubmission();
-                              // launchEmailSubmission();
-                            },
-                            child: const Text(
-                              'MANDA PRENOTAZIONE',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            )),
+                          onPressed: () {
+                            launchEmailSubmission();
+                            // launchEmailSubmission();
+                          },
+                          child: const Text(
+                            'MANDA PRENOTAZIONE',
+                            style: TextStyle(color: Colors.black, fontSize: 20),
+                          ),
+                        ),
                       ],
                     ),
                   ),
