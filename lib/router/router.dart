@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:yoku_web_app/pages/booking/booking_screen.dart';
 import 'package:yoku_web_app/pages/dialog_box/dialog_box.dart';
 import 'package:yoku_web_app/pages/home/home_page.dart';
+import 'package:yoku_web_app/pages/menu/menu_screen.dart';
 import 'package:yoku_web_app/router/route_constants.dart';
 
 class AppRouter {
@@ -29,13 +30,13 @@ class AppRouter {
             return const BookingScreen();
           },
         ),
-        // GoRoute(
-        //   name: RouteConstants.signup,
-        //   path: '/signup',
-        //   builder: (context, state) {
-        //     return const SignupView();
-        //   },
-        // ),
+        GoRoute(
+          name: RouteConstants.menu,
+          path: '/menu',
+          builder: (context, state) {
+            return const MenuScreen();
+          },
+        ),
         // GoRoute(
         //   name: RouteConstants.aboute,
         //   path: '/aboute',

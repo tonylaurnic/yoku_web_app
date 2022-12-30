@@ -56,10 +56,20 @@ class DialogBoxScreen extends StatelessWidget {
               ),
               // const TextButtonWidget(text: 'Home'),
               TextButtonWidget(
-                  text: 'prenota',
-                  onPressed: () => context.push(RouteConstants.booking)),
-              const TextButtonWidget(text: 'filosofia'),
-              const TextButtonWidget(text: 'menu'),
+                text: 'prenota',
+                onPressed: () => context.push(
+                  RouteConstants.booking,
+                ),
+              ),
+              const TextButtonWidget(
+                text: 'filosofia',
+              ),
+              TextButtonWidget(
+                text: 'menu',
+                onPressed: () => context.push(
+                  RouteConstants.menu,
+                ),
+              ),
               const TextButtonWidget(text: 'contatti'),
               const TextButtonWidget(text: 'lavora con noi'),
               const SizedBox(height: 50),

@@ -129,7 +129,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
             const TextButtonWidget(text: 'prenota'),
             Container(
               color: Colors.grey.shade300,
-              height: 600,
+              height: 580,
               width: 600,
               child: Column(
                 children: [

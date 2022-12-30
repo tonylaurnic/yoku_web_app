@@ -20,7 +20,7 @@ class _BookingScreenState extends State<BookingScreen> {
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? const NavigationDrawer(isHome: true)
             : null,
-        body: CenteredView(
+        body: CentredView(
           child: Column(
             children: [
               Expanded(

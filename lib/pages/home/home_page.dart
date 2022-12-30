@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white.withOpacity(0.7),
         body: Stack(
           children: [
-            CenteredView(
+            CentredView(
               child: Column(
                 children: [
                   Expanded(
