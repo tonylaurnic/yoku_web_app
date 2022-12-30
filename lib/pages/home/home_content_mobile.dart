@@ -53,10 +53,9 @@ class HomeContentMobile extends StatelessWidget {
                   ),
                 ),
                 const CarouseWidget(),
+                const SizedBox(height: 50),
                 const FooterWidget(),
-                const SizedBox(
-                  height: 50,
-                ),
+                const SizedBox(height: 50),
               ],
             ),
           ],
