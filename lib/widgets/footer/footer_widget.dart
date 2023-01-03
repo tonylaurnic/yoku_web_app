@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import 'package:yoku_web_app/constants/app_colors.dart';
 
 class FooterWidget extends StatelessWidget {
@@ -11,6 +12,7 @@ class FooterWidget extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.25,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: const [
           FooterItem(
@@ -58,37 +60,60 @@ class FooterItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.23,
-      width: MediaQuery.of(context).size.width * 0.3,
-      child: Card(
-        color: footerColor.withOpacity(0.7),
-        elevation: 0,
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
-            ),
-            Text(
-              title!,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              subtitle!,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-            ),
-            Text(
-              desc1!,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-            ),
-            Text(
-              desc2!,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-            ),
-          ],
+    return ResponsiveBuilder(builder: (context, sizingInformation) {
+      var textAlingment =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? TextAlign.center
+              : TextAlign.center;
+
+      double titleSize =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? 10
+              : 16;
+      double descriptionSize =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? 9
+              : 14;
+
+      return SizedBox(
+        height: MediaQuery.of(context).size.height * 0.23,
+        width: MediaQuery.of(context).size.width * 0.28,
+        child: Card(
+          color: footerColor.withOpacity(0.7),
+          elevation: 0,
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
+              ),
+              Text(
+                textAlign: textAlingment,
+                title!,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: titleSize,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                subtitle!,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: descriptionSize),
+              ),
+              Text(
+                desc1!,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: descriptionSize),
+              ),
+              Text(
+                desc2!,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: descriptionSize),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

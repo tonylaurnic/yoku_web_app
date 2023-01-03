@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:yoku_web_app/constants/app_colors.dart';
+
+import 'package:yoku_web_app/constants/controllers.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navigation_bar.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
+import 'package:yoku_web_app/widgets/product/product_card_widget.dart';
 
 class MenuScreen extends StatefulWidget {
-  const MenuScreen({super.key});
+  const MenuScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MenuScreen> createState() => _MenuScreenState();
 }
 
 class _MenuScreenState extends State<MenuScreen> {
-  final List<String> items = [
-    '1 persona',
-    '2 persone',
-    '3 persone',
-    '4 persone',
-    '5 persone',
-    '6 persone',
-    '7 persone',
-    '8 persone',
-  ];
   String? selectedValue;
   bool isColapsed = false;
+
+  int colapsedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
+    var product = productController.products;
+    var category = categoryController.category;
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
         extendBodyBehindAppBar: true,
@@ -42,8 +42,9 @@ class _MenuScreenState extends State<MenuScreen> {
                   const SizedBox(height: 120),
                   Expanded(
                     child: ListView.builder(
-                      itemCount: 1,
+                      itemCount: category.length,
                       itemBuilder: (context, index) {
+                        isColapsed = colapsedIndex == index;
                         //category
                         return Column(
                           children: [
@@ -51,10 +52,13 @@ class _MenuScreenState extends State<MenuScreen> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 50),
                               child: ExpansionTile(
+                                key: Key(colapsedIndex.toString()),
+                                initiallyExpanded: index == colapsedIndex,
                                 onExpansionChanged: (value) {
-                                  isColapsed = value;
-
-                                  setState(() {});
+                                  setState(() {
+                                    isColapsed = colapsedIndex == index;
+                                    colapsedIndex = index;
+                                  });
                                 },
                                 tilePadding: const EdgeInsets.all(5),
                                 iconColor: Colors.grey,
@@ -62,34 +66,34 @@ class _MenuScreenState extends State<MenuScreen> {
                                 title: isColapsed
                                     ? Container(
                                         height: 120,
-                                        decoration: const BoxDecoration(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.9,
+                                        decoration: BoxDecoration(
                                           color: backgroundColor,
                                           image: DecorationImage(
+                                            fit: BoxFit.cover,
                                             image: AssetImage(
-                                              'assets/plate.PNG',
+                                              category[index].imageUrl,
                                             ),
                                           ),
                                         ),
-                                        child: const Text('CategoryName'),
+                                        // child: const Text(''),
                                       )
-                                    : const Text('Category Name'),
+                                    : Text(category[index].name),
                                 trailing: const SizedBox(),
                                 leading: const Icon(Icons.add),
                                 children: [
                                   SizedBox(
                                     height: 200,
                                     child: ListView.builder(
-                                      itemCount: 1,
+                                      itemCount: productController
+                                          .categoryProducts(category[index])
+                                          .length,
                                       itemBuilder: (context, index) {
-                                        // products
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: const [
-                                            Text('Hoso Maki'),
-                                            Text(' //Description'),
-                                            Text('3.00'),
-                                          ],
+                                        return ProductCardWidget(
+                                          product: product[index],
+                                          index: index,
                                         );
                                       },
                                     ),
@@ -99,14 +103,6 @@ class _MenuScreenState extends State<MenuScreen> {
                             ),
                           ],
                         );
-                        // Card(
-                        //   color: backgroundColor,
-                        //   child: Row(
-                        //     children: const [
-                        //       Text('Prodotto'),
-                        //     ],
-                        //   ),
-                        // );
                       },
                     ),
                   )

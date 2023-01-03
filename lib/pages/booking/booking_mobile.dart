@@ -36,7 +36,6 @@ class _BookingMobileState extends State<BookingMobile> {
   String? selectedTime;
   int isSelectedDay = -1;
   int isSelectedH = -1;
-  bool timeSelected = false;
 
   @override
   void initState() {

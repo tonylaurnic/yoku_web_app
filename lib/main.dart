@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart' as strategy;
+import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:yoku_web_app/constants/app_colors.dart';
+import 'package:yoku_web_app/controllers/category_controller.dart';
+import 'package:yoku_web_app/controllers/product_controller.dart';
 import 'package:yoku_web_app/router/router.dart';
 
 Future<void> main() async {
   strategy.usePathUrlStrategy();
-//  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-//     systemNavigationBarColor: Colors.blue, // navigation bar color
-//     statusBarColor: Colors.pink, // status bar color
-//     statusBarBrightness: Brightness.dark, //status bar brigtness
-//     statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
-//     systemNavigationBarDividerColor:
-//         Colors.greenAccent, //Navigation bar divider color
-//     systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
-//   ));
+
+  Get.put(ProductController());
+  Get.put(CategoryController());
 
   await SentryFlutter.init(
       (options) => options.dsn = 'https://<key>@sentry.io/<project>',
@@ -27,7 +24,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return GetMaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Yoku Sushi',
       theme: ThemeData(
