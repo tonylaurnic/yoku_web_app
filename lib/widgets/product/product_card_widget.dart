@@ -11,19 +11,17 @@ class ProductCardWidget extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: SizedBox(
-        height: 40,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(Product.products[index].name),
-              Text(Product.products[index].description),
-              Text(Product.products[index].price),
-            ],
-          ),
+    return SizedBox(
+      height: 40,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(Product.products[index].name),
+            Text(Product.products[index].description),
+            Text('€ ${Product.products[index].price}'),
+          ],
         ),
       ),
     );

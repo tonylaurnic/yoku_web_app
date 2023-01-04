@@ -54,7 +54,12 @@ class DialogBoxScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // const TextButtonWidget(text: 'Home'),
+              TextButtonWidget(
+                text: 'Home',
+                onPressed: () => context.push(
+                  RouteConstants.home,
+                ),
+              ),
               TextButtonWidget(
                 text: 'prenota',
                 onPressed: () => context.push(

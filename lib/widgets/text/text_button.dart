@@ -13,32 +13,34 @@ class TextButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(builder: (context, sizingInformation) {
-      var textAlingment =
-          sizingInformation.deviceScreenType == DeviceScreenType.desktop
-              ? TextAlign.center
-              : TextAlign.center;
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) {
+        var textAlingment =
+            sizingInformation.deviceScreenType == DeviceScreenType.desktop
+                ? TextAlign.center
+                : TextAlign.center;
 
-      double titleSize =
-          sizingInformation.deviceScreenType == DeviceScreenType.mobile
-              ? 30
-              : 50;
-      double descriptionSize =
-          sizingInformation.deviceScreenType == DeviceScreenType.mobile
-              ? 16
-              : 30;
+        double titleSize =
+            sizingInformation.deviceScreenType == DeviceScreenType.mobile
+                ? 30
+                : 50;
+        double descriptionSize =
+            sizingInformation.deviceScreenType == DeviceScreenType.mobile
+                ? 16
+                : 30;
 
-      return GestureDetector(
-        onTap: onPressed,
-        child: Text(
-          text.toUpperCase(),
-          style: TextStyle(
-              letterSpacing: 17,
-              height: 0.9,
-              fontSize: descriptionSize,
-              color: Colors.black),
-        ),
-      );
-    });
+        return GestureDetector(
+          onTap: onPressed,
+          child: Text(
+            text.toUpperCase(),
+            style: TextStyle(
+                letterSpacing: 17,
+                height: 0.9,
+                fontSize: descriptionSize,
+                color: Colors.black),
+          ),
+        );
+      },
+    );
   }
 }
