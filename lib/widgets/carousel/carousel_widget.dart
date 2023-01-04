@@ -17,17 +17,17 @@ class _CarouseWidgetState extends State<CarouseWidget> {
       children: <Widget>[
         CarouselSlider(
           options: CarouselOptions(
-            height: 400.0,
-            enlargeFactor: 0.3,
-            viewportFraction: 0.8,
-            animateToClosest: true,
-            autoPlay: true,
-            autoPlayInterval: const Duration(seconds: 4),
-            autoPlayAnimationDuration: const Duration(milliseconds: 2400),
-            autoPlayCurve: Curves.linear,
-            pauseAutoPlayOnTouch: true,
-            aspectRatio: 12 / 8,
-          ),
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
+              height: 400.0,
+              enlargeFactor: 0.9,
+              viewportFraction: 0.9,
+              animateToClosest: true,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 4),
+              autoPlayAnimationDuration: const Duration(milliseconds: 2400),
+              autoPlayCurve: Curves.linear,
+              aspectRatio: 16 / 9,
+              enlargeCenterPage: true),
           items: ImageModel.images
               .map((imageUrl) => CardcarouselWidget(image: imageUrl))
               .toList(),

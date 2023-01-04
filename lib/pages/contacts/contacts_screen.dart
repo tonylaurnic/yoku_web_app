@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:yoku_web_app/pages/contacts/contacts_desktop.dart';
+import 'package:yoku_web_app/pages/contacts/contacts_mobile.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navigation_bar.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
@@ -22,14 +24,11 @@ class ContactsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                      child: Column(
-                    children: const [],
-                  )
-                      //  ScreenTypeLayout(
-                      //   mobile: const HomeContentMobile(),
-                      //   desktop: const HomeContentDesktop(),
-                      // ),
-                      ),
+                    child: ScreenTypeLayout(
+                      mobile: const ContactsMobile(),
+                      desktop: const ContactsDesktop(),
+                    ),
+                  ),
                 ],
               ),
             ),

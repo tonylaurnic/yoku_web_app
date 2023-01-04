@@ -6,16 +6,16 @@ class ImageModel {
 
   static List<ImageModel> images = [
     const ImageModel(
-      imageUrl: 'assets/home.JPG',
+      imageUrl: 'assets/1.jpg',
     ),
     const ImageModel(
-      imageUrl: 'assets/home2.jpg',
+      imageUrl: 'assets/4.jpg',
     ),
     const ImageModel(
-      imageUrl: 'assets/Image 23-12-22 at 17.10.JPG',
+      imageUrl: 'assets/5.jpg',
     ),
     const ImageModel(
-      imageUrl: 'assets/plate.JPG',
+      imageUrl: 'assets/7.jpg',
     ),
   ];
 }

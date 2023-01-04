@@ -53,15 +53,13 @@ class HomeContentDesktop extends StatelessWidget {
             ),
             Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: HomePictureWidget(
-                    heigtContainer: MediaQuery.of(context).size.height,
-                    widithContainer: MediaQuery.of(context).size.height * 2,
-                    image: 'assets/plate.PNG',
-                    imageHeight: 200,
-                  ),
+                HomePictureWidget(
+                  heigtContainer: MediaQuery.of(context).size.height,
+                  widithContainer: MediaQuery.of(context).size.height * 2,
+                  image: 'assets/plate.PNG',
+                  imageHeight: 200,
                 ),
+                const SizedBox(height: 50),
               ],
             ),
             const CarouseWidget(),

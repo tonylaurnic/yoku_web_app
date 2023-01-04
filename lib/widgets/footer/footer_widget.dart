@@ -9,37 +9,73 @@ class FooterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.25,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: const [
-          FooterItem(
-            title: 'DOVE SIAMO',
-            subtitle: 'VIALE ALDO MORO',
-            desc1: '183',
-            desc2: 'OLBIA',
-          ),
-          FooterItem(
-            title: 'ORARI DI APERTURA',
-            subtitle: 'DA LUMEDI A DOMENICA',
-            desc1: 'PRANZO 11.30 - 15.00',
-            desc2: 'CENA 18.30 - 23.00',
-          ),
-          FooterItem(
-            title: 'CONTATTI',
-            subtitle: '+39 388 459 8851',
-            desc1: '',
-            desc2: '',
-          ),
-          // FooterItem(
-          //   title: 'DOVE SIAMO',
-          //   subtitle: 'VIALE ALDO MORO',
-          //   desc1: '183',
-          //   desc2: 'OLBIA',
-          // ),
-        ],
+    return ScreenTypeLayout(
+      mobile: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.height * 1.9,
+        child: Column(
+          // mainAxisSize: MainAxisSize.min,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const [
+            FooterItem(
+              title: 'DOVE SIAMO',
+              subtitle: 'VIALE ALDO MORO',
+              desc1: '183',
+              desc2: 'OLBIA',
+            ),
+            FooterItem(
+              title: 'ORARI DI APERTURA',
+              subtitle: 'DA LUMEDI A DOMENICA',
+              desc1: 'PRANZO 11.30 - 15.00',
+              desc2: 'CENA 18.30 - 23.00',
+            ),
+            FooterItem(
+              title: 'CONTATTI',
+              subtitle: '+39 388 459 8851',
+              desc1: '',
+              desc2: '',
+            ),
+            // FooterItem(
+            //   title: 'DOVE SIAMO',
+            //   subtitle: 'VIALE ALDO MORO',
+            //   desc1: '183',
+            //   desc2: 'OLBIA',
+            // ),
+          ],
+        ),
+      ),
+      desktop: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.25,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const [
+            FooterItem(
+              title: 'DOVE SIAMO',
+              subtitle: 'VIALE ALDO MORO',
+              desc1: '183',
+              desc2: 'OLBIA',
+            ),
+            FooterItem(
+              title: 'ORARI DI APERTURA',
+              subtitle: 'DA LUMEDI A DOMENICA',
+              desc1: 'PRANZO 11.30 - 15.00',
+              desc2: 'CENA 18.30 - 23.00',
+            ),
+            FooterItem(
+              title: 'CONTATTI',
+              subtitle: '+39 388 459 8851',
+              desc1: '',
+              desc2: '',
+            ),
+            // FooterItem(
+            //   title: 'DOVE SIAMO',
+            //   subtitle: 'VIALE ALDO MORO',
+            //   desc1: '183',
+            //   desc2: 'OLBIA',
+            // ),
+          ],
+        ),
       ),
     );
   }
@@ -75,9 +111,18 @@ class FooterItem extends StatelessWidget {
               ? 9
               : 14;
 
+      double widithBox =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? MediaQuery.of(context).size.width * 0.8
+              : MediaQuery.of(context).size.width * 0.28;
+      double heightBox =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? MediaQuery.of(context).size.height * 0.2
+              : MediaQuery.of(context).size.height * 0.23;
+
       return SizedBox(
-        height: MediaQuery.of(context).size.height * 0.23,
-        width: MediaQuery.of(context).size.width * 0.28,
+        height: heightBox,
+        width: widithBox,
         child: Card(
           color: footerColor.withOpacity(0.7),
           elevation: 0,
