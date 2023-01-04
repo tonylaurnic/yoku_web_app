@@ -125,7 +125,7 @@ class _BookingMobileState extends State<BookingMobile> {
                 ),
               ),
             ),
-            const TextButtonWidget(text: 'prenota'),
+            const TextButtonWidget(text: 'prenota', colour: Colors.black),
             Container(
               color: Colors.grey.shade300,
               height: 600,

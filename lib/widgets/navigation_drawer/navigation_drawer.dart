@@ -28,7 +28,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           DrawerItem(
-            isHome ? 'Vai allaHome' : 'Vai alla home ',
+            isHome ? 'Vai alla Home' : 'Vai alla home ',
             Icons.home,
             onTap: () {},
           )

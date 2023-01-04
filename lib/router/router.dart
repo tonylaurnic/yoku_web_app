@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:yoku_web_app/pages/booking/booking_screen.dart';
+import 'package:yoku_web_app/pages/contacts/conrtacts_screen.dart';
 import 'package:yoku_web_app/pages/dialog_box/dialog_box.dart';
 import 'package:yoku_web_app/pages/home/home_page.dart';
 import 'package:yoku_web_app/pages/menu/menu_screen.dart';
+import 'package:yoku_web_app/pages/pfilosophy/phylosphy_screen.dart';
+import 'package:yoku_web_app/pages/work_screen.dart/work_screen.dart';
 import 'package:yoku_web_app/router/route_constants.dart';
 
 class AppRouter {
@@ -38,27 +41,27 @@ class AppRouter {
             return const MenuScreen();
           },
         ),
-        // GoRoute(
-        //   name: RouteConstants.aboute,
-        //   path: '/aboute',
-        //   builder: (context, state) {
-        //     return const AbouteView();
-        //   },
-        // ),
-        // GoRoute(
-        //   name: RouteConstants.video,
-        //   path: '/video',
-        //   builder: (context, state) {
-        //     return const VideoListView();
-        //   },
-        // ),
-        // GoRoute(
-        //   name: RouteConstants.player,
-        //   path: '/player/:id',
-        //   builder: (context, state) {
-        //     return VideoPlayerView(id: state.params['id']!);
-        //   },
-        // ),
+        GoRoute(
+          name: RouteConstants.philosophy,
+          path: '/philosophy',
+          builder: (context, state) {
+            return const PhilosophyScreen();
+          },
+        ),
+        GoRoute(
+          name: RouteConstants.work,
+          path: '/work',
+          builder: (context, state) {
+            return const WorkScreen();
+          },
+        ),
+        GoRoute(
+          name: RouteConstants.contacts,
+          path: '/contacts',
+          builder: (context, state) {
+            return const ContactsScreen();
+          },
+        ),
       ],
       redirect: (context, state) {
         bool isAuthenticated = true;

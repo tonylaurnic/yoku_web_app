@@ -22,7 +22,7 @@ class DialogBoxScreen extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? const NavigationDrawer(isHome: true)
+            ? const NavigationDrawer(isHome: false)
             : null,
         body: Container(
           height: MediaQuery.of(context).size.height,
@@ -56,27 +56,46 @@ class DialogBoxScreen extends StatelessWidget {
               ),
               TextButtonWidget(
                 text: 'Home',
+                colour: Colors.black,
                 onPressed: () => context.push(
                   RouteConstants.home,
                 ),
               ),
               TextButtonWidget(
+                colour: Colors.black,
                 text: 'prenota',
                 onPressed: () => context.push(
                   RouteConstants.booking,
                 ),
               ),
-              const TextButtonWidget(
+              TextButtonWidget(
+                colour: Colors.black,
                 text: 'filosofia',
+                onPressed: () => context.push(
+                  RouteConstants.philosophy,
+                ),
               ),
               TextButtonWidget(
+                colour: Colors.black,
                 text: 'menu',
                 onPressed: () => context.push(
                   RouteConstants.menu,
                 ),
               ),
-              const TextButtonWidget(text: 'contatti'),
-              const TextButtonWidget(text: 'lavora con noi'),
+              TextButtonWidget(
+                colour: Colors.black,
+                text: 'contatti',
+                onPressed: () => context.push(
+                  RouteConstants.contacts,
+                ),
+              ),
+              TextButtonWidget(
+                colour: Colors.black,
+                text: 'lavora con noi',
+                onPressed: () => context.push(
+                  RouteConstants.work,
+                ),
+              ),
               const SizedBox(height: 50),
             ],
           ),

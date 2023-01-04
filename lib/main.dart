@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Yoku Sushi',
       theme: ThemeData(
           backgroundColor: backgroundColor,
-          fontFamily: "MPLUS1p",
+          fontFamily: "M_PLUS_1p",
           primaryColor: backgroundColor
 
           // Theme.of(context).textTheme.apply(),

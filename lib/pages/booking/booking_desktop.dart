@@ -126,7 +126,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
                 ),
               ),
             ),
-            const TextButtonWidget(text: 'prenota'),
+            const TextButtonWidget(text: 'prenota', colour: Colors.black),
             Container(
               color: Colors.grey.shade300,
               height: 580,

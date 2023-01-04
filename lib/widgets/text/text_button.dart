@@ -6,10 +6,12 @@ class TextButtonWidget extends StatelessWidget {
     Key? key,
     required this.text,
     this.onPressed,
+    required this.colour,
   }) : super(key: key);
 
   final String text;
   final Function()? onPressed;
+  final Color colour;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class TextButtonWidget extends StatelessWidget {
                 letterSpacing: 17,
                 height: 0.9,
                 fontSize: descriptionSize,
-                color: Colors.black),
+                color: colour),
           ),
         );
       },

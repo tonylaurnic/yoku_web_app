@@ -3,7 +3,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'package:yoku_web_app/widgets/carousel/carousel_widget.dart';
 import 'package:yoku_web_app/widgets/course_widget/details_home_widget.dart';
 import 'package:yoku_web_app/widgets/footer/footer_widget.dart';
-import 'package:yoku_web_app/widgets/logo_view/home_picture_widget.dart';
+import 'package:yoku_web_app/widgets/picture_widget/home_picture_widget.dart';
 
 class HomeContentMobile extends StatelessWidget {
   const HomeContentMobile({super.key});
