@@ -11,7 +11,7 @@ class FooterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
       mobile: SizedBox(
-        height: MediaQuery.of(context).size.height,
+        // height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height * 1.9,
         child: Column(
           // mainAxisSize: MainAxisSize.min,

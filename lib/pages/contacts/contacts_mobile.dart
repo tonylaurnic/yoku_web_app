@@ -15,8 +15,13 @@ class ContactsMobile extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 140),
+            const Text(
+              'Dove siamo',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
             HomePictureWidget(
-              topPadding: 120,
               heigtContainer: MediaQuery.of(context).size.height,
               widithContainer: MediaQuery.of(context).size.height * 0.7,
               image: 'assets/map.png',

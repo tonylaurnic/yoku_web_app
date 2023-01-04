@@ -30,13 +30,17 @@ class TextButtonWidget extends StatelessWidget {
             sizingInformation.deviceScreenType == DeviceScreenType.mobile
                 ? 16
                 : 30;
+        double spacingSize =
+            sizingInformation.deviceScreenType == DeviceScreenType.mobile
+                ? 13
+                : 17;
 
         return GestureDetector(
           onTap: onPressed,
           child: Text(
             text.toUpperCase(),
             style: TextStyle(
-                letterSpacing: 17,
+                letterSpacing: spacingSize,
                 height: 0.9,
                 fontSize: descriptionSize,
                 color: colour),

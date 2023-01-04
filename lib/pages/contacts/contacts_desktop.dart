@@ -23,7 +23,8 @@ class ContactsDesktop extends StatelessWidget {
                     children: [
                       const Text(
                         'Dove siamo',
-                        style: TextStyle(fontSize: 22),
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       HomePictureWidget(
