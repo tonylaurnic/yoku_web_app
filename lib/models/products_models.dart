@@ -758,7 +758,7 @@ class Product extends Equatable {
       description: '5 gunkan misti',
       allergy: '',
     ),
-    //////////
+    //////////sashimi
 
     const Product(
       name: 'SALMON SASHIM',
@@ -935,13 +935,7 @@ class Product extends Equatable {
       description: 'riso saltato con salmone, verdure e uovo',
       allergy: '',
     ),
-    const Product(
-      name: '',
-      category: 'Riso',
-      price: 0,
-      description: '',
-      allergy: '',
-    ),
+
     const Product(
       name: 'STREET RICE',
       category: 'Riso',
