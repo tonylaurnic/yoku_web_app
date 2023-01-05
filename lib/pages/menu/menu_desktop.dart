@@ -103,6 +103,7 @@ class _MenuDesktopScreenState extends State<MenuDesktopScreen> {
                           SizedBox(
                             height: 50 * prodByCat.length.toDouble(),
                             child: ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: prodByCat.length,
                               itemBuilder: (context, index) {
                                 return ProductCardWidget(

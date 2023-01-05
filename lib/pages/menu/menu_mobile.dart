@@ -105,6 +105,7 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
                           SizedBox(
                             height: 80 * prodByCat.length.toDouble(),
                             child: ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: prodByCat.length,
                               itemBuilder: (context, index) {
                                 return ProductCardWidget(
