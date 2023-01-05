@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:yoku_web_app/constants/controllers.dart';
-import 'package:yoku_web_app/widgets/footer/footer_widget.dart';
 import 'package:yoku_web_app/widgets/picture_widget/home_picture_widget.dart';
 import 'package:yoku_web_app/widgets/product/product_card_widget.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
@@ -35,12 +34,19 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              HomePictureWidget(
-                topPadding: 120,
-                heigtContainer: MediaQuery.of(context).size.height * 0.4,
-                widithContainer: MediaQuery.of(context).size.height * 1.7,
-                image: 'assets/menu.jpg',
-              ),
+              !selectedValue
+                  ? HomePictureWidget(
+                      topPadding: 120,
+                      heigtContainer: MediaQuery.of(context).size.height * 0.4,
+                      widithContainer: MediaQuery.of(context).size.height * 1.7,
+                      image: 'assets/menu.jpg',
+                    )
+                  : HomePictureWidget(
+                      topPadding: 120,
+                      heigtContainer: MediaQuery.of(context).size.height * 0.15,
+                      widithContainer: MediaQuery.of(context).size.height * 1.7,
+                      image: 'assets/menu.jpg',
+                    ),
               const SizedBox(height: 10),
               const Padding(
                 padding: EdgeInsets.all(20.0),
@@ -87,14 +93,16 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
                           value
                               ? setState(() {
                                   colapsedIndex = index;
+                                  selectedValue = true;
                                 })
                               : setState(() {
                                   colapsedIndex = -1;
+                                  selectedValue = false;
                                 });
                         },
                         children: [
                           SizedBox(
-                            height: 50 * prodByCat.length.toDouble(),
+                            height: 80 * prodByCat.length.toDouble(),
                             child: ListView.builder(
                               itemCount: prodByCat.length,
                               itemBuilder: (context, index) {
@@ -111,7 +119,7 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
                   },
                 ),
               ),
-              const FooterWidget()
+              // const FooterWidget()
             ],
           ),
         ),

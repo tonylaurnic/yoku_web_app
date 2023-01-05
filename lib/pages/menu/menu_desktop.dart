@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:yoku_web_app/constants/controllers.dart';
-import 'package:yoku_web_app/widgets/footer/footer_widget.dart';
 import 'package:yoku_web_app/widgets/picture_widget/home_picture_widget.dart';
 import 'package:yoku_web_app/widgets/product/product_card_widget.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
@@ -116,7 +115,7 @@ class _MenuDesktopScreenState extends State<MenuDesktopScreen> {
                   },
                 ),
               ),
-              const FooterWidget()
+              // const FooterWidget()
             ],
           ),
         ),

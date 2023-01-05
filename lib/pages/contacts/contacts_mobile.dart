@@ -22,8 +22,8 @@ class ContactsMobile extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             HomePictureWidget(
-              heigtContainer: MediaQuery.of(context).size.height,
-              widithContainer: MediaQuery.of(context).size.height * 0.7,
+              heigtContainer: MediaQuery.of(context).size.height * 0.5,
+              widithContainer: MediaQuery.of(context).size.height * 0.8,
               image: 'assets/map.png',
             ),
             PresentationDetails(

@@ -51,7 +51,7 @@ class Category extends Equatable {
       imageUrl: 'assets/tartare.JPG',
     ),
     const Category(
-      name: 'TemakiYoku',
+      name: 'Temaki Yoku',
       imageUrl: 'assets/tartare.JPG',
     ),
     const Category(
@@ -91,11 +91,11 @@ class Category extends Equatable {
       imageUrl: 'assets/tartare.JPG',
     ),
     const Category(
-      name: 'Pasta e brodo',
+      name: 'Pasta in brodo',
       imageUrl: 'assets/tartare.JPG',
     ),
     const Category(
-      name: 'Pasta Saltata',
+      name: 'Pasta saltata',
       imageUrl: 'assets/tartare.JPG',
     ),
     const Category(
