@@ -39,7 +39,7 @@ class Category extends Equatable {
       imageUrl: 'assets/tartare.JPG',
     ),
     const Category(
-      name: 'Nigiri Special',
+      name: 'Nigiri special',
       imageUrl: 'assets/tartare.JPG',
     ),
     const Category(

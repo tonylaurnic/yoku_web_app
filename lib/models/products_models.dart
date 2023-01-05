@@ -119,7 +119,7 @@ class Product extends Equatable {
       allergy: '',
     ),
 
-////////
+////////crudite
     const Product(
       name: 'SCAMPI, GAMBERI ROSSI',
       category: 'Crudite',
@@ -145,13 +145,7 @@ class Product extends Equatable {
           'tartare di tonno con avocado, ikura, pasta kataifi e il suo condimento',
       allergy: '',
     ),
-    const Product(
-      name: 'EXOTIC SCAMP',
-      category: 'Tartare',
-      price: 0,
-      description: '',
-      allergy: '',
-    ),
+
     const Product(
       name: 'EBI TARTAR',
       category: 'Tartare',
@@ -168,7 +162,7 @@ class Product extends Equatable {
           'tartare di astice al vapore su un letto di riso con mayo, mandorle tostate, pasta kataifi e salsa teriyaki',
       allergy: '',
     ),
-    ////////
+    ////////carpaccio
     const Product(
       name: 'SAKE USUZUKURU ',
       category: 'Carpaccio',
