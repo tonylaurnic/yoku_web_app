@@ -14,7 +14,7 @@ class MenuDesktopScreen extends StatefulWidget {
 }
 
 class _MenuDesktopScreenState extends State<MenuDesktopScreen> {
-  String? selectedValue;
+  bool selectedValue = false;
 
   bool isColapsed = false;
 
@@ -34,12 +34,20 @@ class _MenuDesktopScreenState extends State<MenuDesktopScreen> {
               const SizedBox(
                 height: 120,
               ),
-              HomePictureWidget(
-                topPadding: 0,
-                heigtContainer: MediaQuery.of(context).size.height * 0.5,
-                widithContainer: MediaQuery.of(context).size.height * 1.7,
-                image: 'assets/menu.jpg',
-              ),
+              !selectedValue
+                  ? HomePictureWidget(
+                      topPadding: 0,
+                      heigtContainer: MediaQuery.of(context).size.height * 0.5,
+                      widithContainer: MediaQuery.of(context).size.height * 1.7,
+                      image: 'assets/menu.jpg',
+                    )
+                  : const SizedBox(),
+              // : HomePictureWidget(
+              //     topPadding: 0,
+              //     heigtContainer: MediaQuery.of(context).size.height * 0.2,
+              //     widithContainer: MediaQuery.of(context).size.height * 1.7,
+              //     image: 'assets/menu.jpg',
+              //   ),
               const SizedBox(height: 10),
               const Padding(
                 padding: EdgeInsets.all(20.0),
@@ -51,50 +59,59 @@ class _MenuDesktopScreenState extends State<MenuDesktopScreen> {
               Expanded(
                 child: ListView.builder(
                   itemCount: category.length,
-                  itemBuilder: (context, index) {
-                    isColapsed = colapsedIndex == index;
-                    //category
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 50),
-                          child: ExpansionTile(
-                            key: Key(colapsedIndex.toString()),
-                            initiallyExpanded: index == colapsedIndex,
-                            onExpansionChanged: (value) {
-                              value
-                                  ? setState(() {
-                                      colapsedIndex = index;
-                                    })
-                                  : setState(() {
-                                      colapsedIndex = -1;
-                                    });
-                            },
-                            tilePadding: const EdgeInsets.all(5),
-                            iconColor: Colors.grey,
-                            textColor: Colors.black,
-                            title: Text(category[index].name),
-                            trailing: const SizedBox(),
-                            leading: const Icon(Icons.add),
+                  itemBuilder: (_, index) {
+                    final cat = category[index];
+
+                    var prodByCat = product
+                        .where((product) => product.category == cat.name)
+                        .toList();
+
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: ExpansionTile(
+                        maintainState: true,
+                        title: Column(children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                height: 200,
-                                child: ListView.builder(
-                                  itemCount: productController
-                                      .categoryProducts(category[index])
-                                      .length,
-                                  itemBuilder: (context, index) {
-                                    return ProductCardWidget(
-                                      product: product[index],
-                                      index: index,
-                                    );
-                                  },
-                                ),
-                              ),
+                              Text('${cat.name}'),
                             ],
+                          )
+                        ]),
+                        tilePadding: const EdgeInsets.all(5),
+                        expandedCrossAxisAlignment: CrossAxisAlignment.end,
+                        iconColor: Colors.grey,
+                        textColor: Colors.black,
+                        trailing: const SizedBox(),
+                        leading: colapsedIndex != index
+                            ? const Icon(Icons.add)
+                            : const Icon(Icons.remove),
+                        key: Key(colapsedIndex.toString()),
+                        initiallyExpanded: index == colapsedIndex,
+                        onExpansionChanged: (value) {
+                          value
+                              ? setState(() {
+                                  colapsedIndex = index;
+                                  selectedValue = true;
+                                })
+                              : setState(() {
+                                  colapsedIndex = -1;
+                                  selectedValue = false;
+                                });
+                        },
+                        children: [
+                          SizedBox(
+                            height: 50 * prodByCat.length.toDouble(),
+                            child: ListView.builder(
+                              itemCount: prodByCat.length,
+                              itemBuilder: (context, index) {
+                                return ProductCardWidget(
+                                    product: prodByCat[index], index: index);
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   },
                 ),

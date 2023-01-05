@@ -8,6 +8,7 @@ class CategoryController extends GetxController {
   static CategoryController instance = Get.find();
 
   List<Category> category = Category.categories.obs;
+  // var category = <Category>[].obs;
 
   List<Product> categoryProducts(Category category) =>
       productController.products

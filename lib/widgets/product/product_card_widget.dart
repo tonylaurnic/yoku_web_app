@@ -12,15 +12,39 @@ class ProductCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 60,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(Product.products[index].name),
-            Text(Product.products[index].description),
-            Text('€ ${Product.products[index].price}'),
+            Text(
+              product.name,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Flexible(
+              child: Column(
+                children: [
+                  Text(
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    product.description,
+                    style: const TextStyle(
+                        fontSize: 14, fontStyle: FontStyle.italic),
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              '€ ${product.price.toStringAsFixed(2)}',
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ],
         ),
       ),

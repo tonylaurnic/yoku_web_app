@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+
 import 'package:yoku_web_app/constants/controllers.dart';
 import 'package:yoku_web_app/widgets/footer/footer_widget.dart';
 import 'package:yoku_web_app/widgets/picture_widget/home_picture_widget.dart';
@@ -7,17 +8,18 @@ import 'package:yoku_web_app/widgets/product/product_card_widget.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
 
 class MenuMobileScreen extends StatefulWidget {
-  const MenuMobileScreen({super.key});
+  const MenuMobileScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MenuMobileScreen> createState() => _MenuMobileScreenState();
 }
 
 class _MenuMobileScreenState extends State<MenuMobileScreen> {
-  String? selectedValue;
+  bool selectedValue = false;
 
   bool isColapsed = false;
-
   int colapsedIndex = -1;
 
   @override
@@ -25,6 +27,7 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
     var product = productController.products;
     var category = categoryController.category;
     return SingleChildScrollView(
+      reverse: false,
       child: ScreenTypeLayout(
         mobile: SizedBox(
           height: 2000,
@@ -49,50 +52,61 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
               Expanded(
                 child: ListView.builder(
                   itemCount: category.length,
-                  itemBuilder: (context, index) {
-                    isColapsed = colapsedIndex == index;
-                    //category
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 50),
-                          child: ExpansionTile(
-                            key: Key(colapsedIndex.toString()),
-                            initiallyExpanded: index == colapsedIndex,
-                            onExpansionChanged: (value) {
-                              value
-                                  ? setState(() {
-                                      colapsedIndex = index;
-                                    })
-                                  : setState(() {
-                                      colapsedIndex = -1;
-                                    });
-                            },
-                            tilePadding: const EdgeInsets.all(5),
-                            iconColor: Colors.grey,
-                            textColor: Colors.black,
-                            title: Text(category[index].name),
-                            trailing: const SizedBox(),
-                            leading: const Icon(Icons.add),
+                  itemBuilder: (_, index) {
+                    final cat = category[index];
+
+                    var prodByCat = product
+                        .where((product) => product.category == cat.name)
+                        .toList();
+
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: ExpansionTile(
+                        maintainState: true,
+                        childrenPadding: const EdgeInsets.all(10),
+                        tilePadding: const EdgeInsets.all(5),
+                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                        iconColor: Colors.grey,
+                        textColor: Colors.black,
+                        trailing: const SizedBox(),
+                        leading: colapsedIndex != index
+                            ? const Icon(Icons.add)
+                            : const Icon(Icons.remove),
+                        title: Column(children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                height: 200,
-                                child: ListView.builder(
-                                  itemCount: productController
-                                      .categoryProducts(category[index])
-                                      .length,
-                                  itemBuilder: (context, index) {
-                                    return ProductCardWidget(
-                                      product: product[index],
-                                      index: index,
-                                    );
-                                  },
-                                ),
-                              ),
+                              Text('${cat.name}'),
                             ],
+                          )
+                        ]),
+                        key: Key(colapsedIndex.toString()),
+                        initiallyExpanded: index == colapsedIndex,
+                        onExpansionChanged: (value) {
+                          selectedValue = isColapsed = !isColapsed;
+                          value
+                              ? setState(() {
+                                  colapsedIndex = index;
+                                })
+                              : setState(() {
+                                  colapsedIndex = -1;
+                                });
+                        },
+                        children: [
+                          SizedBox(
+                            height: 50 * prodByCat.length.toDouble(),
+                            child: ListView.builder(
+                              itemCount: prodByCat.length,
+                              itemBuilder: (context, index) {
+                                return ProductCardWidget(
+                                  product: prodByCat[index],
+                                  index: index,
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   },
                 ),
