@@ -57,6 +57,7 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
               ),
               Expanded(
                 child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: category.length,
                   itemBuilder: (_, index) {
                     final cat = category[index];
