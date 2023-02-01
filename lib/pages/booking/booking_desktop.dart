@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yoku_web_app/models/date_model.dart';
+import 'package:yoku_web_app/constants/controllers.dart';
 import 'package:yoku_web_app/models/time_model.dart';
-import 'package:yoku_web_app/router/route_constants.dart';
+import 'package:yoku_web_app/router/app_pages.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
 import 'package:yoku_web_app/widgets/textform/custom_text_form_field.dart';
 
@@ -54,7 +55,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
         toEmail: 'tonylaurnic@gmail.com',
         subject: 'Prenotazione a nome ${_controllerName.text}',
         body:
-            'Prenotazione ricevuta $currentTime, \nper $selectedValue, \ngiorno: $selectedDay, \norario: $selectedTime, \nNome: ${_controllerName.text}, \nTelefono: ${_controllerPhone.text}, \nemail: ${_controllerEmail.text},');
+            'Prenotazione ricevuta $currentTime, \nper $selectedValue, \ngiorno: ${DateFormat("dd-MM-yyyy").format(homeController.selectedDate.value).toString()}, \norario: $selectedTime, \nNome: ${_controllerName.text}, \nTelefono: ${_controllerPhone.text}, \nemail: ${_controllerEmail.text},');
 
     try {
       await launchUrl(
@@ -104,9 +105,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: () {
-                context.push(RouteConstants.home);
-              },
+              onTap: () => Get.toNamed(Routes.home),
               child: SizedBox(
                 height: 80,
                 child: Row(
@@ -174,83 +173,26 @@ class _BookingDesktopState extends State<BookingDesktop> {
 
                   Text('Scieglie il giorno',
                       style: Theme.of(context).textTheme.headline6!),
-                  Expanded(
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio: 4,
-                      ),
-                      itemCount: DateModel.days.length,
-                      itemBuilder: (context, index) {
-                        final isSelected = isSelectedDay == index;
-                        return Card(
-                          color: isSelected
-                              ? Colors.blueGrey.shade100
-                              : Colors.white,
-                          child: Center(
-                            child: TextButton(
-                              onPressed: () {
-                                setState(
-                                  () {
-                                    isSelectedDay = index;
-                                    selectedDay = DateModel.days[index].value;
 
-                                    print(selectedDay.toString());
-                                  },
-                                );
-                              },
-                              child: Text(
-                                DateModel.days[index].value,
-                                style: Theme.of(context).textTheme.headline6,
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                  Obx(() => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey,
+                            fixedSize: const Size(180, 40)),
+                        onPressed: () {
+                          homeController.chooseDate();
+                        },
+                        child: Text(
+                          DateFormat("dd-MM-yyyy")
+                              .format(homeController.selectedDate.value)
+                              .toString(),
+                          style: const TextStyle(fontSize: 13),
+                        ),
+                      )),
 
                   //////
                   Text('Scieglie l\'orario',
                       style: Theme.of(context).textTheme.headline6!),
 
-                  // currentTime == openTime
-                  //     ? Expanded(
-                  //         child: GridView.builder(
-                  //           gridDelegate:
-                  //               const SliverGridDelegateWithFixedCrossAxisCount(
-                  //             crossAxisCount: 3,
-                  //             childAspectRatio: 5,
-                  //           ),
-                  //           itemCount: LanchTime.times.length,
-                  //           itemBuilder: (context, index) {
-                  //             return Card(
-                  //               child: Center(
-                  //                 child: TextButton(
-                  //                   onPressed: () {
-                  //                     setState(
-                  //                       () {
-                  //                         selectedTime =
-                  //                             LanchTime.times[index].value;
-
-                  //                         print(selectedTime.toString());
-                  //                       },
-                  //                     );
-                  //                   },
-                  //                   child: Text(
-                  //                     LanchTime.times[index].value,
-                  //                     style: Theme.of(context)
-                  //                         .textTheme
-                  //                         .headline6,
-                  //                   ),
-                  //                 ),
-                  //               ),
-                  //             );
-                  //           },
-                  //         ),
-                  //       )
-                  //     :
                   Expanded(
                     child: GridView.builder(
                       gridDelegate:

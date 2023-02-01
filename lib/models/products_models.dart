@@ -17,63 +17,63 @@ class Product extends Equatable {
 
   static List<Product> products = [
     const Product(
-      name: 'EDAMAME',
+      name: '101. EDAMAME',
       category: 'Antipasti',
       price: 4.50,
       description: 'baccelli di soia',
       allergy: '',
     ),
     const Product(
-      name: 'EDAMAME SPICY',
+      name: '102. EDAMAME SPICY',
       category: 'Antipasti',
       price: 5.00,
       description: 'bacelli di soia piccanti',
       allergy: '',
     ),
     const Product(
-      name: 'ALGA WAKAME',
+      name: '103. ALGA WAKAME',
       category: 'Antipasti',
       price: 5.00,
       description: '',
       allergy: '',
     ),
     const Product(
-      name: 'EBI GYOZA',
+      name: '104. EBI GYOZA',
       category: 'Antipasti',
       price: 3.00,
       description: 'ravioli di gamberi ',
       allergy: '',
     ),
     const Product(
-      name: 'NIKU GYOZ',
+      name: '105. NIKU GYOZA',
       category: 'Antipasti',
       price: 5,
       description: 'ravioli di carne',
       allergy: '',
     ),
     const Product(
-      name: 'EBI FRY',
+      name: '106. EBI FRY',
       category: 'Antipasti',
       price: 5,
       description: 'gamberi avvolti in pasta kataifi (2 pezzi)',
       allergy: '',
     ),
     const Product(
-      name: 'SAKURA',
+      name: '107. SAKURA',
       category: 'Antipasti',
       price: 6,
       description: ' fior di zucca in tempura croccante',
       allergy: '',
     ),
     const Product(
-      name: 'SAMURAI STICK (3 pezzi)',
+      name: '108. SAMURAI STICK (3 pezzi)',
       category: 'Antipasti',
       price: 6.5,
       description: 'involtini di gamberi, baccelli di soia, salsa piccante',
       allergy: '',
     ),
     const Product(
-      name: 'MILLEFOGLIE DI TONNO',
+      name: '109. MILLEFOGLIE DI TONNO',
       category: 'Antipasti',
       price: 12.00,
       description:
@@ -81,21 +81,21 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'YASAINO',
+      name: '110. YASAINO',
       category: 'Antipasti',
       price: 5,
       description: ' involtini ripieni di verdure',
       allergy: '',
     ),
     const Product(
-      name: 'SCAMPI AL PASSION FRUIT',
+      name: '111. SCAMPI AL PASSION FRUIT',
       category: 'Antipasti',
       price: 8,
       description: 'marinati con emulsione al passion fruit e tobiko',
       allergy: '',
     ),
     const Product(
-      name: 'INVOLTINO AMAEBI (2 pezzi)',
+      name: '112. INVOLTINO AMAEBI (2 pezzi)',
       category: 'Antipasti',
       price: 8,
       description:
@@ -103,7 +103,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'SALMON ROLL (4 pezzi)',
+      name: '113. SALMON ROLL (4 pezzi)',
       category: 'Antipasti',
       price: 10,
       description:
@@ -111,7 +111,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'TUNA FLOWER ROLL(4 pezzi) ',
+      name: '114. TUNA FLOWER ROLL(4 pezzi) ',
       category: 'Antipasti',
       price: 12.00,
       description:
@@ -121,15 +121,16 @@ class Product extends Equatable {
 
 ////////crudite
     const Product(
-      name: 'SCAMPI, GAMBERI ROSSI',
+      name: '115. SCAMPI, GAMBERI ROSSI',
       category: 'Crudite',
       price: 0.0,
       description: 'prezzo variabile',
       allergy: '',
     ),
-    ////
+
+    //// Tartare
     const Product(
-      name: 'SALMON TARTARE',
+      name: '120. SALMON TARTARE',
       category: 'Tartare',
       price: 10,
       description:
@@ -138,54 +139,64 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'TUNA TARTARE',
+      name: '121. TUNA TARTARE',
       category: 'Tartare',
       price: 12,
       description:
           'tartare di tonno con avocado, ikura, pasta kataifi e il suo condimento',
       allergy: '',
     ),
-
     const Product(
-      name: 'EBI TARTAR',
+      name: '122. EXOTIC SCAMP',
+      category: 'Tartare',
+      price: 14,
+      description:
+          'tartare di scampi freschi con dressing al passion fruit, nero di seppia e olio evo',
+      allergy: '',
+    ),
+    const Product(
+      name: '123. EBI TARTAR',
       category: 'Tartare',
       price: 16,
       description:
           'tartare di gambero rosso fresco con salsa yuzu aromatizzato al wasabi',
       allergy: '',
     ),
+
     const Product(
-      name: 'LOBSTER TARTARE',
+      name: '124. LOBSTER TARTARE',
       category: 'Tartare',
       price: 14,
       description:
           'tartare di astice al vapore su un letto di riso con mayo, mandorle tostate, pasta kataifi e salsa teriyaki',
       allergy: '',
     ),
+
     ////////carpaccio
     const Product(
-      name: 'SAKE USUZUKURU ',
+      name: '125. SAKE USUZUKURU ',
       category: 'Carpaccio',
       price: 10,
       description: 'carpaccio di salmone sottile con salsa dello chef',
       allergy: '',
     ),
+
     const Product(
-      name: 'MAGURO USUZUKURU',
+      name: '126. MAGURO USUZUKURU',
       category: 'Carpaccio',
       price: 11,
       description: 'carpaccio di tonno sottile con salsa dello chef',
       allergy: '',
     ),
     const Product(
-      name: 'YOKU',
+      name: '127. YOKU',
       category: 'Carpaccio',
       price: 12,
       description: 'mix usuzukuru carpaccio di pesce misto',
       allergy: '',
     ),
     const Product(
-      name: 'HOTA',
+      name: '128. HOTA',
       category: 'Carpaccio',
       price: 15,
       description:
@@ -193,7 +204,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'AMA',
+      name: '129. AMA',
       category: 'Carpaccio',
       price: 14,
       description:
@@ -201,52 +212,52 @@ class Product extends Equatable {
       allergy: '',
     ),
 
-    ///////
+    ///////gunkan special
 
     const Product(
-      name: 'GUNKAN SALMON OUT',
+      name: '201. GUNKAN SALMON OUT',
       category: 'Gunkan Special',
       price: 6.5,
       description: 'salmone esterno e tartare di salmone piccante',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN TUNA OUT',
+      name: '202. GUNKAN TUNA OUT',
       category: 'Gunkan Special',
       price: 7,
       description: 'tonno esterno con tartare di tonno piccante',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN PINKY EBI ',
+      name: '203. GUNKAN PINKY EBI ',
       category: 'Gunkan Special',
       price: 6.5,
       description: 'zucchina cotta esterna con tartare di gambero cotto',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN SCOTTATO',
+      name: '204. GUNKAN SCOTTATO',
       category: 'Gunkan Special',
       price: 7.5,
       description: 'salmone esterno e tartare di gambero cotto, tobiko e mayo',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN SALMON IKURA',
+      name: '205. GUNKAN SALMON IKURA',
       category: 'Gunkan Special',
       price: 6.5,
       description: 'salmone esterno con uova di salmone',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN PHILADELPHIA',
+      name: '206. GUNKAN PHILADELPHIA',
       category: 'Gunkan Special',
       price: 6,
       description: 'salmone esterno con philadelphia',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN UZURA',
+      name: '207. GUNKAN UZURA',
       category: 'Gunkan Special',
       price: 7.5,
       description:
@@ -254,7 +265,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN SNOW CRAB',
+      name: '208. GUNKAN SNOW CRAB',
       category: 'Gunkan Special',
       price: 7.5,
       description:
@@ -264,14 +275,14 @@ class Product extends Equatable {
 
     //////
     const Product(
-      name: 'SAKE TATAKI',
+      name: '209. SAKE TATAKI',
       category: 'Tataki',
       price: 12,
       description: 'salmone scottato in crosta di sesamo',
       allergy: '',
     ),
     const Product(
-      name: 'MAGURO TATAKI ',
+      name: '210. MAGURO TATAKI ',
       category: 'Tataki',
       price: 13,
       description: 'tonno scottato in crosta di sesamo',
@@ -280,42 +291,42 @@ class Product extends Equatable {
 /////
 
     const Product(
-      name: 'SAKE',
+      name: '211. SAKE',
       category: 'Nigiri',
       price: 3.5,
       description: 'salmone',
       allergy: '',
     ),
     const Product(
-      name: 'MAGURO',
+      name: '212. MAGURO',
       category: 'Nigiri',
       price: 4.5,
       description: 'tonno',
       allergy: '',
     ),
     const Product(
-      name: 'SUZUKI',
+      name: '213. SUZUKI',
       category: 'Nigiri',
       price: 4.5,
       description: 'branzino',
       allergy: '',
     ),
     const Product(
-      name: 'EBI',
+      name: '216. EBI',
       category: 'Nigiri',
       price: 4,
       description: 'gambero cotto',
       allergy: '',
     ),
     const Product(
-      name: 'ANAGO',
+      name: '217. ANAGO',
       category: 'Nigiri',
       price: 5,
       description: 'anguilla alla griglia',
       allergy: '',
     ),
     const Product(
-      name: 'AMAEBI',
+      name: '218. AMAEBI',
       category: 'Nigiri',
       price: 7,
       description: 'gambero rosso',
@@ -325,14 +336,14 @@ class Product extends Equatable {
 //////
 
     const Product(
-      name: 'SALMON ROUGE',
+      name: '220. SALMON ROUGE',
       category: 'Nigiri special',
       price: 5,
       description: 'salmone e tartare di gambero rosso spicy',
       allergy: '',
     ),
     const Product(
-      name: 'NIGIRI SAKE SPECIAL ',
+      name: '221. NIGIRI SAKE SPECIAL ',
       category: 'Nigiri special',
       price: 5,
       description: 'salmone scottato con salsa, mayo, spicy e teriyaki',
@@ -342,49 +353,49 @@ class Product extends Equatable {
 /////
 
     const Product(
-      name: 'AVOCADO MAKI',
+      name: '301. AVOCADO MAKI',
       category: 'Hosomaki',
       price: 5,
       description: 'avocado',
       allergy: '',
     ),
     const Product(
-      name: 'SAKE MAKI',
+      name: '302. SAKE MAKI',
       category: 'Hosomaki',
       price: 5,
       description: 'salmone',
       allergy: '',
     ),
     const Product(
-      name: 'MAGURO MAKI',
+      name: '303. MAGURO MAKI',
       category: 'Hosomaki',
       price: 6,
       description: 'tonno',
       allergy: '',
     ),
     const Product(
-      name: 'SURIMI MAKI',
+      name: '304. SURIMI MAKI',
       category: 'Hosomaki',
       price: 5,
       description: 'surimi',
       allergy: '',
     ),
     const Product(
-      name: 'EBI MAKI',
+      name: '305. EBI MAKI',
       category: 'Hosomaki',
       price: 5,
       description: 'gambero al vapore',
       allergy: '',
     ),
     const Product(
-      name: ' MIX HOSOMAKI',
+      name: '307. MIX HOSOMAKI',
       category: 'Hosomaki',
       price: 5,
       description: 'pesce misto',
       allergy: '',
     ),
     const Product(
-      name: 'KAPAMAKI',
+      name: '308. KAPAMAKI',
       category: 'Hosomaki',
       price: 4,
       description: 'cetriolo',
@@ -393,14 +404,14 @@ class Product extends Equatable {
 
 ////temaki
     const Product(
-      name: 'SALMON TEMAKI ',
+      name: '310. SALMON TEMAKI ',
       category: 'Temaki',
       price: 4.5,
       description: 'salmone e avocado',
       allergy: '',
     ),
     const Product(
-      name: 'TUNA TEMAKI',
+      name: '311. TUNA TEMAKI',
       category: 'Temaki',
       price: 5,
       description: 'tonno e avocado',
@@ -408,7 +419,7 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'EBITEN TEMAKI',
+      name: '312. EBITEN TEMAKI',
       category: 'Temaki',
       price: 4.5,
       description: 'gamberone in tempura, salsa teriyaki e chips di patate',
@@ -416,7 +427,7 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'TEMAKI SPICY SALMON',
+      name: '313. TEMAKI SPICY SALMON',
       category: 'Temaki',
       price: 5,
       description: 'tartare di salmone piccante e mayo',
@@ -424,7 +435,7 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'TEMAKI SPICY TUNA',
+      name: '314. TEMAKI SPICY TUNA',
       category: 'Temaki',
       price: 5.5,
       description: 'tartare di tonno piccante e mayo',
@@ -432,7 +443,7 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'AMAEBI TEMAKI',
+      name: '315. AMAEBI TEMAKI',
       category: 'Temaki',
       price: 6,
       description: 'gambero rosso crudo',
@@ -441,7 +452,7 @@ class Product extends Equatable {
 
     ////temaki yoku
     const Product(
-      name: 'TEMAKI SALMON PLUS',
+      name: '316. TEMAKI SALMON PLUS',
       category: 'Temaki Yoku',
       price: 5,
       description:
@@ -449,21 +460,21 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'TEMAKI FLOR',
+      name: '317. TEMAKI FLOR',
       category: 'Temaki Yoku',
       price: 6,
       description: 'fior di zucca in tempura, tartare di gambero piccante',
       allergy: '',
     ),
     const Product(
-      name: 'TEMAKI CAMARON',
+      name: '318. TEMAKI CAMARON',
       category: 'Temaki Yoku',
       price: 6.5,
       description: 'gamberone in tempura, tartare di salmone piccante',
       allergy: '',
     ),
     const Product(
-      name: 'UNAGHI TEMAKI',
+      name: '319. UNAGHI TEMAKI',
       category: 'Temaki Yoku',
       price: 6.5,
       description: 'filetto di anguilla alla piastra e avocado',
@@ -472,21 +483,21 @@ class Product extends Equatable {
 
     ///uramaki
     const Product(
-      name: 'CALIFORNIA',
+      name: '401. CALIFORNIA',
       category: 'Uramaki',
       price: 8,
       description: 'polpa di granchio, avocado, cetriolo e mayo',
       allergy: '',
     ),
     const Product(
-      name: 'CALIFORNIA ROYAL',
+      name: '402. CALIFORNIA ROYAL',
       category: 'Uramaki',
       price: 13,
       description: 'atlants royal crab, avocado, mayo e tobiko fritto',
       allergy: '',
     ),
     const Product(
-      name: 'SAUDADE',
+      name: '403. SAUDADE',
       category: 'Uramaki',
       price: 13,
       description:
@@ -494,7 +505,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'DRAGON ROLL',
+      name: '404. DRAGON ROLL',
       category: 'Uramaki',
       price: 14,
       description:
@@ -502,7 +513,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'EBI FLÒ',
+      name: '405. EBI FLÒ',
       category: 'Uramaki',
       price: 14,
       description:
@@ -510,7 +521,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'RAINBOW',
+      name: '406. RAINBOW',
       category: 'Uramaki',
       price: 13,
       description:
@@ -518,14 +529,14 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'RAINBOW SPECIAL',
+      name: '407. RAINBOW SPECIAL',
       category: 'Uramaki',
       price: 14,
       description: 'selezione di pesce misto, avocado all’interno ed esterno',
       allergy: '',
     ),
     const Product(
-      name: 'MANGO THAI ROLL',
+      name: '408. MANGO THAI ROLL',
       category: 'Uramaki',
       price: 12,
       description: 'salmone, philadelphia e mango thailandese',
@@ -533,35 +544,35 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'LOBSTER ROLL',
+      name: '409. LOBSTER ROLL',
       category: 'Uramaki',
       price: 18,
       description: 'astice al vapore e tobiko',
       allergy: '',
     ),
     const Product(
-      name: 'AMA EBI ROLL',
+      name: '410. AMA EBI ROLL',
       category: 'Uramaki',
       price: 14,
       description: 'gambero rosso fresco, avocado e tobiko',
       allergy: '',
     ),
     const Product(
-      name: 'TUNA AVOCADO',
+      name: '411. TUNA AVOCADO',
       category: 'Uramaki',
       price: 10,
       description: 'tonno, avocado e tobiko',
       allergy: '',
     ),
     const Product(
-      name: 'NIDO ROLL',
+      name: '412. NIDO ROLL',
       category: 'Uramaki',
       price: 14,
       description: 'cream cheese, avocado, tonno, salmone e pasta kataifi',
       allergy: '',
     ),
     const Product(
-      name: 'SPICY SALMON',
+      name: '413. SPICY SALMON',
       category: 'Uramaki',
       price: 11,
       description:
@@ -569,7 +580,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'SPICY TUNA',
+      name: '414. SPICY TUNA',
       category: 'Uramaki',
       price: 12,
       description:
@@ -577,7 +588,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'MEI ROLL',
+      name: '415. MEI ROLL',
       category: 'Uramaki',
       price: 14,
       description:
@@ -585,14 +596,14 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'PHILADELPHIA',
+      name: '416. PHILADELPHIA',
       category: 'Uramaki',
       price: 10,
       description: 'salmone, avocado, cream cheese',
       allergy: '',
     ),
     const Product(
-      name: 'TIGER ROLL',
+      name: '417. TIGER ROLL',
       category: 'Uramaki',
       price: 13,
       description:
@@ -600,7 +611,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'ANGUILLA ROLL',
+      name: '418. ANGUILLA ROLL',
       category: 'Uramaki',
       price: 14,
       description:
@@ -608,21 +619,21 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'MIURA MAKI ',
+      name: '419. MIURA MAKI ',
       category: 'Uramaki',
       price: 9,
       description: 'salmone grigliato, philadelphia e salsa teriyaki',
       allergy: '',
     ),
     const Product(
-      name: 'AMONDO PHILADELPHIA',
+      name: '420. AMONDO PHILADELPHIA',
       category: 'Uramaki',
       price: 10,
       description: 'tartare di salmone, cream cheese e mandorle tostate',
       allergy: '',
     ),
     const Product(
-      name: 'FRAGOLA MAKI (6 pezzi)',
+      name: '421. FRAGOLA MAKI (6 pezzi)',
       category: 'Uramaki',
       price: 10,
       description:
@@ -630,7 +641,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'SALMON EBI TEN',
+      name: '422. SALMON EBI TEN',
       category: 'Uramaki',
       price: 14,
       description:
@@ -638,7 +649,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'TEMPURA MAKI',
+      name: '423. TEMPURA MAKI',
       category: 'Uramaki',
       price: 12,
       description:
@@ -646,7 +657,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'TRUFFLE ROLL',
+      name: '424. TRUFFLE ROLL',
       category: 'Uramaki',
       price: 16,
       description:
@@ -654,7 +665,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'SCAMPO ROLL',
+      name: '425. SCAMPO ROLL',
       category: 'Uramaki',
       price: 16,
       description:
@@ -662,7 +673,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'EBI UNAGHI',
+      name: '426. EBI UNAGHI',
       category: 'Uramaki',
       price: 16,
       description:
@@ -670,14 +681,14 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'EBITEN URAMAKI ',
+      name: '427. EBITEN URAMAKI ',
       category: 'Uramaki',
       price: 10,
       description: 'gamberone in tempura, pasta kataifi, mayo e salsa teriyaki',
       allergy: '',
     ),
     const Product(
-      name: 'IMPERIAL EBITEN',
+      name: '429. IMPERIAL EBITEN',
       category: 'Uramaki',
       price: 12,
       description:
@@ -685,7 +696,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'HANA ROLL',
+      name: '430. HANA ROLL',
       category: 'Uramaki',
       price: 16,
       description:
@@ -693,7 +704,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'AMAEBI TRUFFLE ROLL',
+      name: '502. AMAEBI TRUFFLE ROLL',
       category: 'Uramaki',
       price: 18,
       description:
@@ -701,7 +712,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'SNOW',
+      name: '503. SNOW',
       category: 'Uramaki',
       price: 16,
       description:
@@ -712,7 +723,7 @@ class Product extends Equatable {
 ////futomaki
 
     const Product(
-      name: 'CALIFORNIA FUTOMAKI',
+      name: '504. CALIFORNIA FUTOMAKI',
       category: 'Futomaki',
       price: 5,
       description: 'polpa di granchio, avocado, cetriolo e salsa mayo',
@@ -720,7 +731,7 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'FUTOMAKI EBITEN',
+      name: '505. FUTOMAKI EBITEN',
       category: 'Futomaki',
       price: 6.5,
       description:
@@ -729,7 +740,7 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'HOT ROLL FRITTO',
+      name: '506. HOT ROLL FRITTO',
       category: 'Futomaki',
       price: 7,
       description: 'salmone, gambero cotto, avocado, e salsa mayo',
@@ -738,21 +749,21 @@ class Product extends Equatable {
     ///////compositione sushi
 
     const Product(
-      name: 'NIGIRI SPECIA',
+      name: '508. NIGIRI SPECIA',
       category: 'Composizioni Sushi',
       price: 14,
       description: '6 nigiri special misti',
       allergy: '',
     ),
     const Product(
-      name: 'SUSA HU ',
+      name: '509. SUSA HU ',
       category: 'Composizioni Sushi',
       price: 14,
       description: '6 sashimi, 6 nigiri',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN TASTE',
+      name: '511. GUNKAN TASTE',
       category: 'Composizioni Sushi',
       price: 16,
       description: '5 gunkan misti',
@@ -761,21 +772,21 @@ class Product extends Equatable {
     //////////sashimi
 
     const Product(
-      name: 'SALMON SASHIM',
+      name: '512. SALMON SASHIM',
       category: 'Composizioni sashimi',
       price: 7,
       description: '6 pezzi',
       allergy: '',
     ),
     const Product(
-      name: 'TUNA SASHIMI',
+      name: '513. TUNA SASHIMI',
       category: 'Composizioni sashimi',
       price: 8,
       description: '6 pezzi',
       allergy: '',
     ),
     const Product(
-      name: 'SASHIMI MIX',
+      name: '514. SASHIMI MIX',
       category: 'Composizioni sashimi',
       price: 14,
       description: '12 pezzi',
@@ -784,7 +795,7 @@ class Product extends Equatable {
 //// compositioni yoku
 
     const Product(
-      name: 'SMALL',
+      name: '515. SMALL',
       category: 'Composizioni Yoku',
       price: 20,
       description:
@@ -792,7 +803,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'LOVE',
+      name: '516. LOVE',
       category: 'Composizioni Yoku',
       price: 38,
       description:
@@ -800,7 +811,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'PARTY',
+      name: '517. PARTY',
       category: 'Composizioni Yoku',
       price: 60,
       description:
@@ -810,42 +821,42 @@ class Product extends Equatable {
     //////
 
     const Product(
-      name: 'VEGETAL NIGIRI (6 pezzi)',
+      name: '601. VEGETAL NIGIRI (6 pezzi)',
       category: 'Sushi Vegetariano',
       price: 12,
       description: 'composizione di nigiri misti',
       allergy: '',
     ),
     const Product(
-      name: 'GUNKAN WAKAME (2 pezzi) 1',
+      name: '602. GUNKAN WAKAME (2 pezzi) 1',
       category: 'Sushi Vegetariano',
       price: 5,
       description: 'alga esterna, insalata di alga wakame',
       allergy: '',
     ),
     const Product(
-      name: 'JUST VEGETAL URAMAKI (8 pezzi)',
+      name: '603. JUST VEGETAL URAMAKI (8 pezzi)',
       category: 'Sushi Vegetariano',
       price: 8,
       description: 'avocado, cetriolo, alga wakame, insalata e semi di sesamo',
       allergy: '',
     ),
     const Product(
-      name: 'VEG ROLL URAMAKI (8 pezzi)',
+      name: '604. VEG ROLL URAMAKI (8 pezzi)',
       category: 'Sushi Vegetariano',
       price: 8,
       description: 'avocado, asparago, cream cheese e chips di patate',
       allergy: '',
     ),
     const Product(
-      name: 'SUSHI TREE',
+      name: '605. SUSHI TREE',
       category: 'Sushi Vegetariano',
       price: 20,
       description: '6 nigiri, 8 uramaki, 3 hosomaki, 1 gunkan',
       allergy: '',
     ),
     const Product(
-      name: ' FUTO TOFU (6 pezzi) ',
+      name: '606. FUTO TOFU (6 pezzi) ',
       category: 'Sushi Vegetariano',
       price: 9,
       description:
@@ -853,7 +864,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'NIGIRI AVOCADO',
+      name: '607. NIGIRI AVOCADO',
       category: 'Sushi Vegetariano',
       price: 5,
       description: '2 nigiri con lamine di avocado',
@@ -862,28 +873,28 @@ class Product extends Equatable {
 
     ///chirashi
     const Product(
-      name: 'CIRASHI MIX',
+      name: '608. CIRASHI MIX',
       category: 'Cirashi',
       price: 12,
       description: 'pesce misto',
       allergy: '',
     ),
     const Product(
-      name: 'SAKE DON',
+      name: '609. SAKE DON',
       category: 'Cirashi',
       price: 10,
       description: 'salmone',
       allergy: '',
     ),
     const Product(
-      name: 'MAGURO DON',
+      name: '610. MAGURO DON',
       category: 'Cirashi',
       price: 11,
       description: 'tonno',
       allergy: '',
     ),
     const Product(
-      name: 'UNAGHI DON',
+      name: '611. UNAGHI DON',
       category: 'Cirashi',
       price: 12,
       description: 'riso bianco con anguilla arrosto',
@@ -891,14 +902,14 @@ class Product extends Equatable {
     ),
 ////zuppe
     const Product(
-      name: 'MISO SHIRU',
+      name: '612. MISO SHIRU',
       category: 'Zuppe',
       price: 3.5,
       description: 'zuppa di soia con alghe, tofu e erba cipollina',
       allergy: '',
     ),
     const Product(
-      name: 'YASAI SOUP SPICY ',
+      name: '613. YASAI SOUP SPICY ',
       category: 'Zuppe',
       price: 5,
       description:
@@ -906,7 +917,7 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'COCCO THAI SŪPE',
+      name: '614. COCCO THAI SŪPE',
       category: 'Zuppe',
       price: 6,
       description: 'zuppa di cocco thai con gamberi',
@@ -915,21 +926,21 @@ class Product extends Equatable {
 
     ///
     const Product(
-      name: 'GOHAN',
+      name: '615. GOHAN',
       category: 'Riso',
       price: 3.5,
       description: 'riso bianco',
       allergy: '',
     ),
     const Product(
-      name: 'YAKI MESHI',
+      name: '616. YAKI MESHI',
       category: 'Riso',
       price: 7,
       description: 'riso saltato con verdure di stagione e uovo',
       allergy: '',
     ),
     const Product(
-      name: 'SAKE MESHI',
+      name: '617. SAKE MESHI',
       category: 'Riso',
       price: 8,
       description: 'riso saltato con salmone, verdure e uovo',
@@ -937,21 +948,21 @@ class Product extends Equatable {
     ),
 
     const Product(
-      name: 'STREET RICE',
+      name: '618. STREET RICE',
       category: 'Riso',
       price: 8,
       description: 'riso al curry con carne di vitello e uovo',
       allergy: '',
     ),
     const Product(
-      name: 'SEAFOOD RICE',
+      name: '619. SEAFOOD RICE',
       category: 'Riso',
       price: 14,
       description: 'riso su pietra lavica con misto mare, verdure e uovo',
       allergy: '',
     ),
     const Product(
-      name: 'BEEF RICE',
+      name: '620. BEEF RICE',
       category: 'Riso',
       price: 12,
       description: 'riso su pietra lavica con manzo, peperoni e uovo',
@@ -961,21 +972,21 @@ class Product extends Equatable {
 // ///// pasts in brodo
 
     const Product(
-      name: 'SOBA',
+      name: '702. SOBA',
       category: 'Pasta in brodo',
       price: 8,
       description: 'spaghetti di grano saraceno in brodo di misto mare',
       allergy: '',
     ),
     const Product(
-      name: 'RAMEN',
+      name: '703. RAMEN',
       category: 'Pasta in brodo',
       price: 8,
       description: 'spaghetti di riso in brodo con uova, alghe e misto mare',
       allergy: '',
     ),
     const Product(
-      name: 'GYONIKU UDON',
+      name: '704. GYONIKU UDON',
       category: 'Pasta in brodo',
       price: 8,
       description: 'spaghetti di riso con manzo',
@@ -983,63 +994,63 @@ class Product extends Equatable {
     ),
 ///////pasta saltata
     const Product(
-      name: 'YAKI UDON',
+      name: '705. YAKI UDON',
       category: 'Pasta saltata',
       price: 8,
       description: 'spaghetti di riso con gamberi e verdure',
       allergy: '',
     ),
     const Product(
-      name: 'YAKI SOBA',
+      name: '706. YAKI SOBA',
       category: 'Pasta saltata',
       price: 8,
       description: 'spaghetti di grano saraceno con gamberi e verdure',
       allergy: '',
     ),
     const Product(
-      name: 'YAKI SOBA GREEN ',
+      name: '707. YAKI SOBA GREEN ',
       category: 'Pasta saltata',
       price: 8,
       description: 'spaghetti al the verde con gamberi e verdure',
       allergy: '',
     ),
     const Product(
-      name: 'NIKU UDON',
+      name: '708. NIKU UDON',
       category: 'Pasta saltata',
       price: 8,
       description: 'spaghetti di riso con manzo e verdure',
       allergy: '',
     ),
     const Product(
-      name: 'NIKU SOBA',
+      name: '709. NIKU SOBA',
       category: 'Pasta saltata',
       price: 8,
       description: 'spaghetti di grano saraceno con manzo e verdure',
       allergy: '',
     ),
     const Product(
-      name: 'SAKE GREEN',
+      name: '710. SAKE GREEN',
       category: 'Pasta saltata',
       price: 8,
       description: 'spaghetti al the verde con salmone e lana d’alga',
       allergy: '',
     ),
     const Product(
-      name: 'UDON UMI',
+      name: '711. UDON UMI',
       category: 'Pasta saltata',
       price: 9,
       description: 'spaghetti di riso con misto mare',
       allergy: '',
     ),
     const Product(
-      name: 'SPAGHETTI DI SOIA',
+      name: '712. SPAGHETTI DI SOIA',
       category: 'Pasta saltata',
       price: 8,
       description: 'spaghetti di soia con gamberi e verdure',
       allergy: '',
     ),
     const Product(
-      name: 'PAD THAI',
+      name: '713. PAD THAI',
       category: 'Pasta saltata',
       price: 9.5,
       description: 'tagliatelle di riso con misto mare e arachidi',
@@ -1048,21 +1059,21 @@ class Product extends Equatable {
 
     /////tempura
     const Product(
-      name: 'YASAI TEMPURA',
+      name: '714. YASAI TEMPURA',
       category: 'Tempura',
       price: 8,
       description: 'tempura di verdure di stagione',
       allergy: '',
     ),
     const Product(
-      name: 'EBI TEMPURA',
+      name: '715. EBI TEMPURA',
       category: 'Tempura',
       price: 12,
       description: 'tempura di gamberoni',
       allergy: '',
     ),
     const Product(
-      name: 'MIX TEMPURA',
+      name: '716. MIX TEMPURA',
       category: 'Tempura',
       price: 12,
       description: 'tempura di gamberoni e verdure',
@@ -1071,7 +1082,7 @@ class Product extends Equatable {
 
 // ////piastra
     const Product(
-      name: 'YAKI TORI ',
+      name: '801. YAKI TORI ',
       category: 'Piastra',
       price: 8,
       description:
@@ -1079,21 +1090,21 @@ class Product extends Equatable {
       allergy: '',
     ),
     const Product(
-      name: 'SAKE TEPPAN',
+      name: '802. SAKE TEPPAN',
       category: 'Piastra',
       price: 10,
       description: 'filetto di salmone alla piastra',
       allergy: '',
     ),
     const Product(
-      name: 'MAGURO TEPPAN',
+      name: '803. MAGURO TEPPAN',
       category: 'Piastra',
       price: 11,
       description: 'filetto di tonno alla piastra',
       allergy: '',
     ),
     const Product(
-      name: 'EBI SHINO YAKI',
+      name: '804. EBI SHINO YAKI',
       category: 'Piastra',
       price: 8,
       description: 'spiedini di gamberi',
@@ -1102,14 +1113,14 @@ class Product extends Equatable {
 
 //////verdure
     const Product(
-      name: 'YASAI',
+      name: '805. YASAI',
       category: 'Verdure',
       price: 6.5,
       description: 'cavolo orientale al salto',
       allergy: '',
     ),
     const Product(
-      name: 'YASAINO TEPPAN YAKI',
+      name: '806. YASAINO TEPPAN YAKI',
       category: 'Verdure',
       price: 6.5,
       description: 'misto di verdure di stagione saltate',

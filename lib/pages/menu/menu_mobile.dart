@@ -16,20 +16,55 @@ class MenuMobileScreen extends StatefulWidget {
 }
 
 class _MenuMobileScreenState extends State<MenuMobileScreen> {
+  // final GlobalKey expansionTile = GlobalKey();
+  final GlobalKey expansionTileKey = GlobalKey();
+  final ScrollController _scrollController = ScrollController();
+
   bool selectedValue = false;
 
   bool isColapsed = false;
   int colapsedIndex = -1;
+
+  // void _scrollToSelectedContent(GlobalKey expansionTileKey) {
+  //   final keyContext = expansionTileKey.currentContext;
+  //   if (keyContext != null) {
+  //     Future.delayed(const Duration(milliseconds: 200)).then((value) {
+  //       Scrollable.ensureVisible(keyContext,
+  //           duration: const Duration(milliseconds: 200));
+  //     });
+  //   }
+  // }
+
+  onListExpansionChanged(bool expanded) {
+    //returns if it was expanded (true) or collapsed (false)
+    if (expanded) {
+      final keyContext = expansionTileKey.currentContext;
+
+      _scrollController.animateTo(_scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+      Future.delayed(const Duration(milliseconds: 200)).then((value) {
+        Scrollable.ensureVisible(keyContext!,
+            duration: const Duration(milliseconds: 200));
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController;
+  }
 
   @override
   Widget build(BuildContext context) {
     var product = productController.products;
     var category = categoryController.category;
     return SingleChildScrollView(
+      // controller: _scrollController,
       reverse: false,
       child: ScreenTypeLayout(
         mobile: SizedBox(
-          height: 2000,
+          height: 2500,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -69,6 +104,9 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 50),
                       child: ExpansionTile(
+                        key:
+                            // expansionTileKey,
+                            Key(colapsedIndex.toString()),
                         maintainState: true,
                         childrenPadding: const EdgeInsets.all(10),
                         tilePadding: const EdgeInsets.all(5),
@@ -87,17 +125,18 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
                             ],
                           )
                         ]),
-                        key: Key(colapsedIndex.toString()),
                         initiallyExpanded: index == colapsedIndex,
                         onExpansionChanged: (value) {
                           selectedValue = isColapsed = !isColapsed;
+                          onListExpansionChanged;
+
                           value
                               ? setState(() {
-                                  colapsedIndex = index;
+                                  // colapsedIndex = index;
                                   selectedValue = true;
                                 })
                               : setState(() {
-                                  colapsedIndex = -1;
+                                  // colapsedIndex = -1;
                                   selectedValue = false;
                                 });
                         },
@@ -121,6 +160,9 @@ class _MenuMobileScreenState extends State<MenuMobileScreen> {
                   },
                 ),
               ),
+              const SizedBox(
+                height: 80,
+              )
               // const FooterWidget()
             ],
           ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:yoku_web_app/router/route_constants.dart';
+import 'package:yoku_web_app/router/app_pages.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
 
@@ -57,44 +58,32 @@ class DialogBoxScreen extends StatelessWidget {
               TextButtonWidget(
                 text: 'Home',
                 colour: Colors.black,
-                onPressed: () => context.push(
-                  RouteConstants.home,
-                ),
+                onPressed: () => Get.toNamed(Routes.home),
               ),
               TextButtonWidget(
                 colour: Colors.black,
                 text: 'prenota',
-                onPressed: () => context.push(
-                  RouteConstants.booking,
-                ),
+                onPressed: () => Get.toNamed(Routes.booking),
               ),
               TextButtonWidget(
                 colour: Colors.black,
                 text: 'filosofia',
-                onPressed: () => context.push(
-                  RouteConstants.philosophy,
-                ),
+                onPressed: () => Get.toNamed(Routes.philosophy),
               ),
               TextButtonWidget(
                 colour: Colors.black,
                 text: 'menu',
-                onPressed: () => context.push(
-                  RouteConstants.menu,
-                ),
+                onPressed: () => Get.toNamed(Routes.menu),
               ),
               TextButtonWidget(
                 colour: Colors.black,
                 text: 'contatti',
-                onPressed: () => context.push(
-                  RouteConstants.contacts,
-                ),
+                onPressed: () => Get.toNamed(Routes.contacts),
               ),
               TextButtonWidget(
                 colour: Colors.black,
                 text: 'lavora con noi',
-                onPressed: () => context.push(
-                  RouteConstants.work,
-                ),
+                onPressed: () => Get.toNamed(Routes.work),
               ),
               const SizedBox(height: 50),
             ],

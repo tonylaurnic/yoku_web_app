@@ -77,7 +77,7 @@ class _MenuDesktopScreenState extends State<MenuDesktopScreen> {
                               Text('${cat.name}'),
                             ],
                           )
-                        ]),
+                        ],),
                         tilePadding: const EdgeInsets.all(5),
                         expandedCrossAxisAlignment: CrossAxisAlignment.end,
                         iconColor: Colors.grey,

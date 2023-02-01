@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yoku_web_app/models/date_model.dart';
+import 'package:yoku_web_app/constants/controllers.dart';
 import 'package:yoku_web_app/models/time_model.dart';
-import 'package:yoku_web_app/router/route_constants.dart';
+import 'package:yoku_web_app/router/app_pages.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
 import 'package:yoku_web_app/widgets/textform/custom_text_form_field.dart';
 
@@ -34,7 +35,7 @@ class _BookingMobileState extends State<BookingMobile> {
   String? selectedValue;
   String? selectedDay;
   String? selectedTime;
-  int isSelectedDay = -1;
+  bool isSelectedDay = false;
   int isSelectedH = -1;
 
   @override
@@ -53,7 +54,7 @@ class _BookingMobileState extends State<BookingMobile> {
         toEmail: 'tonylaurnic@gmail.com',
         subject: 'Prenotazione a nome ${_controllerName.text}',
         body:
-            'Prenotazione ricevuta $currentTime, \nper $selectedValue, \ngiorno: $selectedDay, \norario: $selectedTime, \nNome: ${_controllerName.text}, \nTelefono: ${_controllerPhone.text}, \nemail: ${_controllerEmail.text},');
+            'Prenotazione ricevuta $currentTime, \nper $selectedValue, \ngiorno: ${DateFormat("dd-MM-yyyy").format(homeController.selectedDate.value).toString()}, \norario: $selectedTime, \nNome: ${_controllerName.text}, \nTelefono: ${_controllerPhone.text}, \nemail: ${_controllerEmail.text},');
 
     try {
       await launchUrl(
@@ -103,9 +104,7 @@ class _BookingMobileState extends State<BookingMobile> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: () {
-                context.push(RouteConstants.home);
-              },
+              onTap: () => Get.toNamed(Routes.home),
               child: SizedBox(
                 height: 50,
                 child: Row(
@@ -173,48 +172,86 @@ class _BookingMobileState extends State<BookingMobile> {
 
                   Text('Scieglie il giorno',
                       style: Theme.of(context).textTheme.titleMedium),
-                  Expanded(
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        childAspectRatio: 2,
-                      ),
-                      itemCount: DateModel.days.length,
-                      itemBuilder: (context, index) {
-                        final isSelected = isSelectedDay == index;
-                        return Card(
-                          color: isSelected
-                              ? Colors.blueGrey.shade100
-                              : Colors.white,
-                          child: Center(
-                            child: TextButton(
-                              onPressed: () {
-                                setState(
-                                  () {
-                                    setState(() {
-                                      selectedDay = DateModel.days[index].value;
-                                    });
-                                    isSelectedDay = index;
-                                    print(selectedDay.toString());
-                                  },
-                                );
-                              },
-                              child: Text(
-                                DateModel.days[index].value,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                  // Expanded(
+                  //   child: GridView.builder(
+                  //     gridDelegate:
+                  //         const SliverGridDelegateWithFixedCrossAxisCount(
+                  //       crossAxisCount: 4,
+                  //       childAspectRatio: 2,
+                  //     ),
+                  //     itemCount: DateModel.days.length,
+                  //     itemBuilder: (context, index) {
+                  //       final isSelected = isSelectedDay == index;
+                  //       return Card(
+                  //         color: isSelected
+                  //             ? Colors.blueGrey.shade100
+                  //             : Colors.white,
+                  //         child: Center(
+                  //           child: TextButton(
+                  //             onPressed: () {
+                  //               setState(
+                  //                 () {
+                  //                   setState(() {
+                  //                     selectedDay = DateModel.days[index].value;
+                  //                   });
+                  //                   isSelectedDay = index;
+                  //                   print(selectedDay.toString());
+                  //                 },
+                  //               );
+                  //             },
+                  //             child: Text(
+                  //               DateModel.days[index].value,
+                  //               style: Theme.of(context)
+                  //                   .textTheme
+                  //                   .bodyLarge!
+                  //                   .copyWith(
+                  //                     fontWeight: FontWeight.bold,
+                  //                   ),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       );
+                  //     },
+                  //   ),
+                  //  ),
+
+                  Obx(() => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey,
+                            fixedSize: const Size(180, 40)),
+                        onPressed: () {
+                          homeController.chooseDate();
+                        },
+                        child: Text(
+                          DateFormat("dd-MM-yyyy")
+                              .format(homeController.selectedDate.value)
+                              .toString(),
+                          style: const TextStyle(fontSize: 13),
+                        ),
+                      )),
+
+                  // Card(
+                  //   color:
+                  //       isSelectedDay ? Colors.blueGrey.shade100 : Colors.white,
+                  //   child: Center(
+                  //     child: TextButton(
+                  //       onPressed: () {
+                  //         homeController.chooseDate();
+                  //       },
+                  //       child: Obx(
+                  //         () => Text(
+                  //           DateFormat("dd-MM-yyyy")
+                  //               .format(homeController.selectedDate.value)
+                  //               .toString(),
+                  //           style:
+                  //               Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  //                     fontWeight: FontWeight.bold,
+                  //                   ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
 
                   //////
                   Text('Scieglie l\'orario',
