@@ -176,7 +176,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
 
                   Obx(() => ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey,
+                            backgroundColor: Colors.white,
                             fixedSize: const Size(180, 40)),
                         onPressed: () {
                           homeController.chooseDate();
@@ -185,7 +185,8 @@ class _BookingDesktopState extends State<BookingDesktop> {
                           DateFormat("dd-MM-yyyy")
                               .format(homeController.selectedDate.value)
                               .toString(),
-                          style: const TextStyle(fontSize: 13),
+                          style: const TextStyle(
+                              fontSize: 13, color: Colors.black),
                         ),
                       )),
 

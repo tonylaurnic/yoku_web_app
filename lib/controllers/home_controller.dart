@@ -13,7 +13,8 @@ class HomeController extends GetxController {
   chooseDate() async {
     DateTime? pickedDate = await showDatePicker(
       builder: (context, child) {
-        return Theme(data: ThemeData.dark(), child: child!);
+        return Theme(
+            data: ThemeData(primarySwatch: Colors.blueGrey), child: child!);
       },
       // locale: const Locale("it", "IT"),
       context: Get.context!,

@@ -96,289 +96,293 @@ class _BookingMobileState extends State<BookingMobile> {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
-      mobile: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: const Color(0xFFfaf9f3),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () => Get.toNamed(Routes.home),
-              child: SizedBox(
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+      mobile: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          color: const Color(0xFFfaf9f3),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () => Get.toNamed(Routes.home),
+                child: SizedBox(
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10.0, top: 10),
+                        child: Text(
+                          'X',
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w200,
+                              color: Colors.grey.shade600),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const TextButtonWidget(text: 'prenota', colour: Colors.black),
+              Container(
+                color: Colors.grey.shade300,
+                height: 600,
+                width: 600,
+                child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 10.0, top: 10),
-                      child: Text(
-                        'X',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w200,
-                            color: Colors.grey.shade600),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: DropdownButtonFormField(
+                        iconSize: 20,
+                        decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            gapPadding: 4,
+                            borderSide: BorderSide(
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          hintText: 'PERSONE DA PRENOTARE',
+                          contentPadding: EdgeInsets.symmetric(horizontal: 5),
+                          fillColor: Colors.grey,
+                        ),
+                        items: items.map(
+                          (item) {
+                            return DropdownMenuItem(
+                              value: item,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(item),
+                              ),
+                            );
+                          },
+                        ).toList(),
+                        value: selectedValue,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedValue = value as String;
+                            print(selectedValue);
+                          });
+                        },
+                        icon: const Icon(
+                          Icons.person,
+                        ),
+                      ),
+                    ),
+
+                    Text('Scieglie il giorno',
+                        style: Theme.of(context).textTheme.titleMedium),
+                    // Expanded(
+                    //   child: GridView.builder(
+                    //     gridDelegate:
+                    //         const SliverGridDelegateWithFixedCrossAxisCount(
+                    //       crossAxisCount: 4,
+                    //       childAspectRatio: 2,
+                    //     ),
+                    //     itemCount: DateModel.days.length,
+                    //     itemBuilder: (context, index) {
+                    //       final isSelected = isSelectedDay == index;
+                    //       return Card(
+                    //         color: isSelected
+                    //             ? Colors.blueGrey.shade100
+                    //             : Colors.white,
+                    //         child: Center(
+                    //           child: TextButton(
+                    //             onPressed: () {
+                    //               setState(
+                    //                 () {
+                    //                   setState(() {
+                    //                     selectedDay = DateModel.days[index].value;
+                    //                   });
+                    //                   isSelectedDay = index;
+                    //                   print(selectedDay.toString());
+                    //                 },
+                    //               );
+                    //             },
+                    //             child: Text(
+                    //               DateModel.days[index].value,
+                    //               style: Theme.of(context)
+                    //                   .textTheme
+                    //                   .bodyLarge!
+                    //                   .copyWith(
+                    //                     fontWeight: FontWeight.bold,
+                    //                   ),
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       );
+                    //     },
+                    //   ),
+                    //  ),
+
+                    Obx(() => ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              fixedSize: const Size(180, 40)),
+                          onPressed: () {
+                            homeController.chooseDate();
+                          },
+                          child: Text(
+                            DateFormat("dd-MM-yyyy")
+                                .format(homeController.selectedDate.value)
+                                .toString(),
+                            style: const TextStyle(
+                                fontSize: 13, color: Colors.black),
+                          ),
+                        )),
+
+                    // Card(
+                    //   color:
+                    //       isSelectedDay ? Colors.blueGrey.shade100 : Colors.white,
+                    //   child: Center(
+                    //     child: TextButton(
+                    //       onPressed: () {
+                    //         homeController.chooseDate();
+                    //       },
+                    //       child: Obx(
+                    //         () => Text(
+                    //           DateFormat("dd-MM-yyyy")
+                    //               .format(homeController.selectedDate.value)
+                    //               .toString(),
+                    //           style:
+                    //               Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    //                     fontWeight: FontWeight.bold,
+                    //                   ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+
+                    //////
+                    Text('Scieglie l\'orario',
+                        style: Theme.of(context).textTheme.headline6!),
+
+                    // currentTime == openTime
+                    //     ? Expanded(
+                    //         child: GridView.builder(
+                    //           gridDelegate:
+                    //               const SliverGridDelegateWithFixedCrossAxisCount(
+                    //             crossAxisCount: 3,
+                    //             childAspectRatio: 5,
+                    //           ),
+                    //           itemCount: LanchTime.times.length,
+                    //           itemBuilder: (context, index) {
+                    //             return Card(
+                    //               child: Center(
+                    //                 child: TextButton(
+                    //                   onPressed: () {
+                    //                     setState(
+                    //                       () {
+                    //                         selectedTime =
+                    //                             LanchTime.times[index].value;
+
+                    //                         print(selectedTime.toString());
+                    //                       },
+                    //                     );
+                    //                   },
+                    //                   child: Text(
+                    //                     LanchTime.times[index].value,
+                    //                     style: Theme.of(context)
+                    //                         .textTheme
+                    //                         .headline6,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             );
+                    //           },
+                    //         ),
+                    //       )
+                    //     :
+                    Expanded(
+                      child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                          childAspectRatio: 2,
+                        ),
+                        itemCount: TimeModel.times.length,
+                        itemBuilder: (context, index) {
+                          final isSelected = isSelectedH == index;
+                          return Card(
+                            color: isSelected
+                                ? Colors.blueGrey.shade100
+                                : Colors.white,
+                            child: Center(
+                              child: TextButton(
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      isSelectedH = index;
+                                      selectedTime =
+                                          TimeModel.times[index].value;
+                                      print(selectedTime.toString());
+                                    },
+                                  );
+                                },
+                                child: Text(
+                                  TimeModel.times[index].value,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge!
+                                      .copyWith(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: Column(
+                        children: [
+                          CustomTextField(
+                            controllerPhone: _controllerName,
+                            hintText: 'Nome e cognome',
+                            labelText: 'Nome e cognome',
+                          ),
+                          //
+
+                          const SizedBox(height: 5),
+                          CustomTextField(
+                            controllerPhone: _controllerPhone,
+                            hintText: 'Telefono',
+                            labelText: 'Telefono',
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          CustomTextField(
+                            controllerPhone: _controllerEmail,
+                            hintText: 'Email',
+                            labelText: 'Email',
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                launchEmailSubmission();
+                                // launchEmailSubmission();
+                              },
+                              child: Text(
+                                'MANDA PRENOTAZIONE',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              )),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-            const TextButtonWidget(text: 'prenota', colour: Colors.black),
-            Container(
-              color: Colors.grey.shade300,
-              height: 600,
-              width: 600,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: DropdownButtonFormField(
-                      iconSize: 20,
-                      decoration: const InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          gapPadding: 4,
-                          borderSide: BorderSide(
-                            style: BorderStyle.solid,
-                          ),
-                        ),
-                        hintText: 'PERSONE DA PRENOTARE',
-                        contentPadding: EdgeInsets.symmetric(horizontal: 5),
-                        fillColor: Colors.grey,
-                      ),
-                      items: items.map(
-                        (item) {
-                          return DropdownMenuItem(
-                            value: item,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Text(item),
-                            ),
-                          );
-                        },
-                      ).toList(),
-                      value: selectedValue,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedValue = value as String;
-                          print(selectedValue);
-                        });
-                      },
-                      icon: const Icon(
-                        Icons.person,
-                      ),
-                    ),
-                  ),
-
-                  Text('Scieglie il giorno',
-                      style: Theme.of(context).textTheme.titleMedium),
-                  // Expanded(
-                  //   child: GridView.builder(
-                  //     gridDelegate:
-                  //         const SliverGridDelegateWithFixedCrossAxisCount(
-                  //       crossAxisCount: 4,
-                  //       childAspectRatio: 2,
-                  //     ),
-                  //     itemCount: DateModel.days.length,
-                  //     itemBuilder: (context, index) {
-                  //       final isSelected = isSelectedDay == index;
-                  //       return Card(
-                  //         color: isSelected
-                  //             ? Colors.blueGrey.shade100
-                  //             : Colors.white,
-                  //         child: Center(
-                  //           child: TextButton(
-                  //             onPressed: () {
-                  //               setState(
-                  //                 () {
-                  //                   setState(() {
-                  //                     selectedDay = DateModel.days[index].value;
-                  //                   });
-                  //                   isSelectedDay = index;
-                  //                   print(selectedDay.toString());
-                  //                 },
-                  //               );
-                  //             },
-                  //             child: Text(
-                  //               DateModel.days[index].value,
-                  //               style: Theme.of(context)
-                  //                   .textTheme
-                  //                   .bodyLarge!
-                  //                   .copyWith(
-                  //                     fontWeight: FontWeight.bold,
-                  //                   ),
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  //  ),
-
-                  Obx(() => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey,
-                            fixedSize: const Size(180, 40)),
-                        onPressed: () {
-                          homeController.chooseDate();
-                        },
-                        child: Text(
-                          DateFormat("dd-MM-yyyy")
-                              .format(homeController.selectedDate.value)
-                              .toString(),
-                          style: const TextStyle(fontSize: 13),
-                        ),
-                      )),
-
-                  // Card(
-                  //   color:
-                  //       isSelectedDay ? Colors.blueGrey.shade100 : Colors.white,
-                  //   child: Center(
-                  //     child: TextButton(
-                  //       onPressed: () {
-                  //         homeController.chooseDate();
-                  //       },
-                  //       child: Obx(
-                  //         () => Text(
-                  //           DateFormat("dd-MM-yyyy")
-                  //               .format(homeController.selectedDate.value)
-                  //               .toString(),
-                  //           style:
-                  //               Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  //                     fontWeight: FontWeight.bold,
-                  //                   ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-
-                  //////
-                  Text('Scieglie l\'orario',
-                      style: Theme.of(context).textTheme.headline6!),
-
-                  // currentTime == openTime
-                  //     ? Expanded(
-                  //         child: GridView.builder(
-                  //           gridDelegate:
-                  //               const SliverGridDelegateWithFixedCrossAxisCount(
-                  //             crossAxisCount: 3,
-                  //             childAspectRatio: 5,
-                  //           ),
-                  //           itemCount: LanchTime.times.length,
-                  //           itemBuilder: (context, index) {
-                  //             return Card(
-                  //               child: Center(
-                  //                 child: TextButton(
-                  //                   onPressed: () {
-                  //                     setState(
-                  //                       () {
-                  //                         selectedTime =
-                  //                             LanchTime.times[index].value;
-
-                  //                         print(selectedTime.toString());
-                  //                       },
-                  //                     );
-                  //                   },
-                  //                   child: Text(
-                  //                     LanchTime.times[index].value,
-                  //                     style: Theme.of(context)
-                  //                         .textTheme
-                  //                         .headline6,
-                  //                   ),
-                  //                 ),
-                  //               ),
-                  //             );
-                  //           },
-                  //         ),
-                  //       )
-                  //     :
-                  Expanded(
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        childAspectRatio: 2,
-                      ),
-                      itemCount: TimeModel.times.length,
-                      itemBuilder: (context, index) {
-                        final isSelected = isSelectedH == index;
-                        return Card(
-                          color: isSelected
-                              ? Colors.blueGrey.shade100
-                              : Colors.white,
-                          child: Center(
-                            child: TextButton(
-                              onPressed: () {
-                                setState(
-                                  () {
-                                    isSelectedH = index;
-                                    selectedTime = TimeModel.times[index].value;
-                                    print(selectedTime.toString());
-                                  },
-                                );
-                              },
-                              child: Text(
-                                TimeModel.times[index].value,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5),
-                    child: Column(
-                      children: [
-                        CustomTextField(
-                          controllerPhone: _controllerName,
-                          hintText: 'Nome e cognome',
-                          labelText: 'Nome e cognome',
-                        ),
-                        //
-
-                        const SizedBox(height: 5),
-                        CustomTextField(
-                          controllerPhone: _controllerPhone,
-                          hintText: 'Telefono',
-                          labelText: 'Telefono',
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        CustomTextField(
-                          controllerPhone: _controllerEmail,
-                          hintText: 'Email',
-                          labelText: 'Email',
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        TextButton(
-                            onPressed: () {
-                              launchEmailSubmission();
-                              // launchEmailSubmission();
-                            },
-                            child: Text(
-                              'MANDA PRENOTAZIONE',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            )),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-          ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
