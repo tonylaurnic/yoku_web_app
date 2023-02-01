@@ -25,11 +25,11 @@ class NavigationBarTabletDescktop extends StatelessWidget {
             'PRENOTA',
             onTap: () => Get.toNamed(Routes.booking),
           ),
-          GestureDetector(
-              child: const Text(
-            'EN',
-            style: TextStyle(color: Colors.black),
-          )),
+          // GestureDetector(
+          //     child: const Text(
+          //   'EN',
+          //   style: TextStyle(color: Colors.black),
+          // )),
           const NavBarLogo(),
           DrowerElement(
             onPressed: () => Get.toNamed(Routes.dialogbox),

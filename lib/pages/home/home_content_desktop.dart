@@ -19,7 +19,7 @@ class HomeContentDesktop extends StatelessWidget {
             HomePictureWidget(
               topPadding: 120,
               heigtContainer: MediaQuery.of(context).size.height * 0.8,
-              widithContainer: MediaQuery.of(context).size.height * 1.7,
+              widithContainer: MediaQuery.of(context).size.width,
               image: 'assets/home.JPG',
             ),
             PresentationDetails(

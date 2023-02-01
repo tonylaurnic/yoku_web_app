@@ -15,6 +15,7 @@ class HomeController extends GetxController {
       builder: (context, child) {
         return Theme(data: ThemeData.dark(), child: child!);
       },
+      // locale: const Locale("it", "IT"),
       context: Get.context!,
       initialDate: selectedDate.value,
       firstDate: DateTime(2022),
