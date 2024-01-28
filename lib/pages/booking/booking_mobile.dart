@@ -62,7 +62,7 @@ class _BookingMobileState extends State<BookingMobile> {
         mode: LaunchMode.platformDefault,
       );
     } catch (e) {
-      await Clipboard.setData(const ClipboardData());
+      await Clipboard.setData( ClipboardData( text: mailUrl ) );
     }
   }
 

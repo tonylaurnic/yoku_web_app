@@ -21,7 +21,7 @@ class _BookingScreenState extends State<BookingScreen> {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? const NavigationDrawer(isHome: true)
+            ? const NavigationDrawerWidget(isHome: true)
             : null,
         body: CentredView(
           child: Column(

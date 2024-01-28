@@ -15,7 +15,7 @@ class PhilosophyScreen extends StatelessWidget {
       builder: (context, sizingInformation) => Scaffold(
         extendBodyBehindAppBar: true,
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? const NavigationDrawer(isHome: true)
+            ? const NavigationDrawerWidget(isHome: true)
             : null,
         backgroundColor: Colors.white.withOpacity(0.7),
         body: Stack(

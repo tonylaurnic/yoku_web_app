@@ -23,7 +23,7 @@ class DialogBoxScreen extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? const NavigationDrawer(isHome: false)
+            ? const NavigationDrawerWidget(isHome: false)
             : null,
         body: Container(
           height: MediaQuery.of(context).size.height,

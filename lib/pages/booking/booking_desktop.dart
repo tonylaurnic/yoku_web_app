@@ -63,7 +63,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
         mode: LaunchMode.platformDefault,
       );
     } catch (e) {
-      await Clipboard.setData(const ClipboardData());
+      await Clipboard.setData(ClipboardData(text: mailUrl));
     }
   }
 

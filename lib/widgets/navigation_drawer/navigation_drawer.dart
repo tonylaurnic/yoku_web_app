@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/drawer_item.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer_header.dart';
 
-class NavigationDrawer extends StatelessWidget {
+class NavigationDrawerWidget extends StatelessWidget {
   final bool isHome;
-  const NavigationDrawer({
+  const NavigationDrawerWidget({
     Key? key,
     this.isHome = false,
   }) : super(key: key);
