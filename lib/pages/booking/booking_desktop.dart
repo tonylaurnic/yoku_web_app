@@ -172,14 +172,26 @@ class _BookingDesktopState extends State<BookingDesktop> {
                   ),
 
                   Text('Scieglie il giorno',
-                      style: Theme.of(context).textTheme.headline6!),
+                      style: Theme.of(context).textTheme.titleLarge!),
 
                   Obx(() => ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             fixedSize: const Size(180, 40)),
                         onPressed: () {
-                          homeController.chooseDate();
+                          if (homeController.selectedDate.value.weekday == 1) {
+                            Get.snackbar(
+                              "SALVE",
+                              "DI LUNEDI SIAMO CHIUSI",
+                              snackPosition: SnackPosition.BOTTOM,
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                          } else {
+                            homeController.chooseDate();
+                          }
+
+                          // homeController.chooseDate();
                         },
                         child: Text(
                           DateFormat("dd-MM-yyyy")
@@ -192,7 +204,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
 
                   //////
                   Text('Scieglie l\'orario',
-                      style: Theme.of(context).textTheme.headline6!),
+                      style: Theme.of(context).textTheme.titleLarge!),
 
                   Expanded(
                     child: GridView.builder(
@@ -222,7 +234,7 @@ class _BookingDesktopState extends State<BookingDesktop> {
                               },
                               child: Text(
                                 TimeModel.times[index].value,
-                                style: Theme.of(context).textTheme.headline6,
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
                             ),
                           ),

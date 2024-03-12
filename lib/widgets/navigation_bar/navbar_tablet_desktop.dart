@@ -4,11 +4,10 @@ import 'package:yoku_web_app/constants/app_colors.dart';
 import 'package:yoku_web_app/router/app_pages.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/drower_element.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/navbar_item.dart';
-import 'package:yoku_web_app/widgets/navigation_bar/navbar_logo.dart';
+import 'package:yoku_web_app/widgets/navigation_bar/logo.dart';
 
-class NavigationBarTabletDescktop extends StatelessWidget {
-  const NavigationBarTabletDescktop(
-      {super.key, this.automaticallyImplyLeading});
+class NavigationBarWidget extends StatelessWidget {
+  const NavigationBarWidget({super.key, this.automaticallyImplyLeading});
 
   final bool? automaticallyImplyLeading;
 

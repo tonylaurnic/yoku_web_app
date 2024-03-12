@@ -3,7 +3,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'package:yoku_web_app/pages/pfilosophy/philosophy_desktop.dart';
 import 'package:yoku_web_app/pages/pfilosophy/philosophy_mobile.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
-import 'package:yoku_web_app/widgets/navigation_bar/navigation_bar.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
 
 class PhilosophyScreen extends StatelessWidget {
@@ -32,7 +31,7 @@ class PhilosophyScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const MyNavigationBar(),
+             NavigationBar(destinations: [],),
           ],
         ),
       ),

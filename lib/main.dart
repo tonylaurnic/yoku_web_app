@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_plugins/url_strategy.dart' as strategy;
 import 'package:get/get.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:yoku_web_app/bindings/category_binding.dart';
 import 'package:yoku_web_app/bindings/home_binding.dart';
 import 'package:yoku_web_app/bindings/product_bindinbg.dart';
 import 'package:yoku_web_app/constants/app_colors.dart';
-import 'package:yoku_web_app/controllers/category_controller.dart';
-import 'package:yoku_web_app/controllers/home_controller.dart';
-import 'package:yoku_web_app/controllers/product_controller.dart';
 import 'package:yoku_web_app/router/app_pages.dart';
 import 'package:yoku_web_app/translations/app_translations.dart';
 
@@ -48,6 +45,17 @@ class MyApp extends StatelessWidget {
       // Theme.of(context).textTheme.apply(),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+
+      builder: (context, child) {
+        return ResponsiveBreakpoints.builder(
+          child: child!,
+          breakpoints: [
+            const Breakpoint(start: 0, end: 450, name: MOBILE),
+            const Breakpoint(start: 451, end: 900, name: TABLET),
+            const Breakpoint(start: 901, end: double.infinity, name: DESKTOP),
+          ],
+        );
+      },
     );
   }
 }

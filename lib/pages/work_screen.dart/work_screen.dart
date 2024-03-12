@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
-import 'package:yoku_web_app/widgets/navigation_bar/navigation_bar.dart';
+import 'package:yoku_web_app/widgets/navigation_bar/nav_bar_widget.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
 
 class WorkScreen extends StatelessWidget {
@@ -33,7 +33,7 @@ class WorkScreen extends StatelessWidget {
                 ],
               ),
             ),
-            MyNavigationBar(),
+            NavigationBarWidget()
           ],
         ),
       ),

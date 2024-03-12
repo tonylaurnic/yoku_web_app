@@ -4,7 +4,7 @@ import 'package:yoku_web_app/pages/menu/menu_desktop.dart';
 
 import 'package:yoku_web_app/pages/menu/menu_mobile.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
-import 'package:yoku_web_app/widgets/navigation_bar/navigation_bar.dart';
+import 'package:yoku_web_app/widgets/navigation_bar/nav_bar_widget.dart';
 import 'package:yoku_web_app/widgets/navigation_drawer/navigation_drawer.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -36,7 +36,7 @@ class MenuScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const MyNavigationBar(),
+            const NavigationBarWidget(),
           ],
         ),
       ),

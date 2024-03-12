@@ -45,9 +45,19 @@ class _NavBarItemState extends State<NavBarItem> {
                         fontSize: 18,
                         letterSpacing: 3),
                   ),
-                  Divider(
-                    thickness: isHovered ? 3 : 1,
-                    color: Colors.black,
+                  Column(
+                    children: [
+                      const Divider(
+                        height: 1,
+                        thickness: 1,
+                        color: Colors.black,
+                      ),
+                      const SizedBox(height: 5),
+                      Divider(
+                          height: 1,
+                          thickness: isHovered ? 3 : 0,
+                          color: isHovered ? Colors.black : Colors.white)
+                    ],
                   ),
                 ],
               ),
