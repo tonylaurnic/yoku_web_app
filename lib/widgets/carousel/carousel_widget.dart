@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:yoku_web_app/constants/dynalic_values.dart';
 import 'package:yoku_web_app/models/image_model.dart';
 import 'package:yoku_web_app/widgets/carousel/card_carousel_widget.dart';
 
@@ -18,7 +19,13 @@ class _CarouseWidgetState extends State<CarouseWidget> {
         CarouselSlider(
           options: CarouselOptions(
               enlargeStrategy: CenterPageEnlargeStrategy.height,
-              height: 400.0,
+              height: responsiveValue(
+                context,
+                defaultVal: 400,
+                tabletVal: 500,
+                mobileVal: 400,
+                desktopVal: 400,
+              ),
               enlargeFactor: 0.9,
               viewportFraction: 0.9,
               animateToClosest: true,

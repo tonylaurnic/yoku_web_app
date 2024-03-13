@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yoku_web_app/constants/dynalic_values.dart';
 
 class CentredView extends StatelessWidget {
   final Widget? child;
@@ -7,7 +8,22 @@ class CentredView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+      padding: EdgeInsets.symmetric(
+        horizontal: responsiveValue(
+          context,
+          defaultVal: 0,
+          mobileVal: 0,
+          tabletVal: 5,
+          desktopVal: 10,
+        ),
+        vertical: responsiveValue(
+          context,
+          defaultVal: 0,
+          mobileVal: 0,
+          tabletVal: 5,
+          desktopVal: 10,
+        ),
+      ),
       alignment: Alignment.topCenter,
       child: ConstrainedBox(
         constraints:

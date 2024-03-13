@@ -22,6 +22,7 @@ class HomePictureWidget extends StatelessWidget {
         top: topPadding,
       ),
       decoration: const BoxDecoration(
+
           // borderRadius: BorderRadius.circular(12),
           ),
       height: heigtContainer,
@@ -31,7 +32,7 @@ class HomePictureWidget extends StatelessWidget {
         child: Image.asset(
           image,
           height: imageHeight,
-          fit: BoxFit.cover,
+          fit: BoxFit.fitWidth,
         ),
       ),
     );
