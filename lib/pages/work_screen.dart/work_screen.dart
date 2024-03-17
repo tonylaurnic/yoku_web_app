@@ -7,25 +7,27 @@ class WorkScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
-      children: [
-        CentredView(
-          child: Column(
-            children: [
-              Expanded(
-                  child: Column(
-                children: [],
-              )
-                  //  ScreenTypeLayout(
-                  //   mobile: const HomeContentMobile(),
-                  //   desktop: const HomeContentDesktop(),
-                  // ),
-                  ),
-            ],
+    return const Scaffold(
+      body: Stack(
+        children: [
+          CentredView(
+            child: Column(
+              children: [
+                Expanded(
+                    child: Column(
+                  children: [],
+                )
+                    //  ScreenTypeLayout(
+                    //   mobile: const HomeContentMobile(),
+                    //   desktop: const HomeContentDesktop(),
+                    // ),
+                    ),
+              ],
+            ),
           ),
-        ),
-        NavigationBarWidget(),
-      ],
+          NavigationBarWidget(),
+        ],
+      ),
     );
   }
 }
