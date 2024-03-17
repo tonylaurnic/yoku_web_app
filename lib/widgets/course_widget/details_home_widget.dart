@@ -57,6 +57,8 @@ class PresentationDetails extends StatelessWidget {
               height: 1.7,
             ),
             textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 20,
           )
         ],
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:yoku_web_app/bindings/category_binding.dart';
 import 'package:yoku_web_app/bindings/home_binding.dart';
 import 'package:yoku_web_app/bindings/product_bindinbg.dart';
@@ -16,9 +15,11 @@ Future<void> main() async {
   ProductBinding().dependencies();
   HomeBinding().dependencies();
 
-  await SentryFlutter.init(
-      (options) => options.dsn = 'https://<key>@sentry.io/<project>',
-      appRunner: () => runApp(const MyApp()));
+  runApp(const MyApp());
+
+  // await SentryFlutter.init(
+  //     (options) => options.dsn = 'https://<key>@sentry.io/<project>',
+  //     appRunner: () => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Yoku Sushi',
       theme: ThemeData(
-        fontFamily: "M_PLUS_1p-Thin",
+        fontFamily: "M_PLUS",
         primaryColor: backgroundColor,
         colorScheme: const ColorScheme.light(
           primary: backgroundColor,

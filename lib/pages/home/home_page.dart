@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:yoku_web_app/constants/dynalic_values.dart';
+import 'package:yoku_web_app/constants/strings_home.dart';
 import 'package:yoku_web_app/widgets/carousel/carousel_widget.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
 import 'package:yoku_web_app/widgets/course_widget/details_home_widget.dart';
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    const double heightContainer = 700;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
                       defaultVal: 400,
                       tabletVal: 500,
                       mobileVal: 400,
-                      desktopVal: 400),
+                      desktopVal: heightContainer),
                   widithContainer: responsiveValue(context,
                       defaultVal: width * 0.4,
                       tabletVal: width * 0.9,
@@ -45,9 +46,8 @@ class HomePage extends StatelessWidget {
                 PresentationDetails(
                   heigtContainer: MediaQuery.of(context).size.height * 0.5,
                   widithContainer: MediaQuery.of(context).size.height * 1.7,
-                  title: 'UNA LOCATION \nESCLUSIVA',
-                  content:
-                      'L\'eleganza e la cura dei particolari sono i tratti distintivi del nostro ristorante. La nostra location ricercata ed esclusiva ed il nostro staff preparato e professionale accompagneranno la vostra esperienza nel migliore dei modi. Tutto questo immerso in una delle zone più importanti della città, un angolo di oriente pronto ad accogliervi',
+                  title: HomeStrings.title,
+                  content: HomeStrings.content_1,
                 ),
                 SizedBox(
                   height: responsiveValue(
@@ -55,13 +55,13 @@ class HomePage extends StatelessWidget {
                     defaultVal: 400,
                     tabletVal: 820,
                     mobileVal: 820,
-                    desktopVal: 400,
+                    desktopVal: heightContainer,
                   ),
                   child: ResponsiveRowColumn(
                     layout: ResponsiveBreakpoints.of(context).isDesktop
                         ? ResponsiveRowColumnType.ROW
                         : ResponsiveRowColumnType.COLUMN,
-                    rowMainAxisAlignment: MainAxisAlignment.center,
+                    rowMainAxisAlignment: MainAxisAlignment.spaceAround,
                     rowCrossAxisAlignment: CrossAxisAlignment.stretch,
                     rowPadding: const EdgeInsets.symmetric(horizontal: 10),
                     children: [
@@ -101,28 +101,38 @@ class HomePage extends StatelessWidget {
                             desktopVal: width * 0.4,
                           ),
                           title: 'UNA CUCINA \nINNOVATIVA',
-                          content:
-                              'La nostra cucina nasce dallo studio e dall \'amore per la cultura Giapponese ed orientale, sotto ogni punto di vista. Nel nostro ristorante la tradizione si sposa alla perfezione con l’innovazione e le influenze di altre culture, portando ad una proposta fusion intrigante ed appagante, perfetta per ogni tipo di palato. Il pesce freschissimo viene manipolato con maestria dai nostri Chef, con lo scopo di conservare il suo sapore naturale e di arricchirlo con combinazioni gustose e sorprendenti.',
+                          content: HomeStrings.content_2,
                         ),
                       ),
                     ],
                   ),
                 ),
-
-              
                 Column(
                   children: [
                     HomePictureWidget(
-                      heigtContainer: MediaQuery.of(context).size.height,
-                      widithContainer: MediaQuery.of(context).size.height * 2,
-                      image: 'assets/plate.PNG',
-                      imageHeight: 200,
+                      heigtContainer: responsiveValue(context,
+                          defaultVal: 400,
+                          tabletVal: 400,
+                          mobileVal: 400,
+                          desktopVal:
+                              heightContainer), // MediaQuery.of(context).size.height * 0.5,
+                      widithContainer: width,
+                      image: 'assets/menu.jpg',
+
+                      imageHeight: 100,
                     ),
-                    const SizedBox(height: 50),
+                    SizedBox(
+                      height: responsiveValue(
+                        context,
+                        defaultVal: 20,
+                        mobileVal: 20,
+                        tabletVal: 20,
+                        desktopVal: 50,
+                      ),
+                    ),
                   ],
                 ),
                 const CarouseWidget(),
-                const SizedBox(height: 50),
                 const FooterWidget(),
                 const SizedBox(
                   height: 50,

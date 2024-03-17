@@ -29,6 +29,7 @@ class FooterWidget extends StatelessWidget {
         columnMainAxisSize: MainAxisSize.min,
         children: const [
           ResponsiveRowColumnItem(
+            rowFit: FlexFit.loose,
             child: FooterItem(
               title: 'DOVE SIAMO',
               subtitle: 'VIALE ALDO MORO',
@@ -37,6 +38,7 @@ class FooterWidget extends StatelessWidget {
             ),
           ),
           ResponsiveRowColumnItem(
+            rowFit: FlexFit.loose,
             child: FooterItem(
               title: 'ORARI DI APERTURA',
               subtitle: 'DA LUMEDI A DOMENICA',
@@ -45,6 +47,7 @@ class FooterWidget extends StatelessWidget {
             ),
           ),
           ResponsiveRowColumnItem(
+            rowFit: FlexFit.loose,
             child: FooterItem(
               title: 'CONTATTI',
               subtitle: '+39 388 459 8851',
@@ -77,14 +80,14 @@ class FooterItem extends StatelessWidget {
       height: responsiveValue(
         context,
         defaultVal: 300,
-        tabletVal: 300,
+        tabletVal: 200,
         mobileVal: 150,
         desktopVal: 400,
       ),
       width: responsiveValue(
         context,
         defaultVal: 200,
-        tabletVal: 290,
+        tabletVal: 200,
         mobileVal: 200,
         desktopVal: 300,
       ),
@@ -107,7 +110,7 @@ class FooterItem extends StatelessWidget {
                   defaultVal: 30,
                   tabletVal: 20,
                   mobileVal: 15,
-                  desktopVal: 30,
+                  desktopVal: 22,
                 ),
               ),
             ),
@@ -118,8 +121,8 @@ class FooterItem extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: responsiveValue(
                     context,
-                    defaultVal: 20,
-                    tabletVal: 15,
+                    defaultVal: 18,
+                    tabletVal: 14,
                     mobileVal: 10,
                     desktopVal: 20,
                   )),
@@ -131,9 +134,9 @@ class FooterItem extends StatelessWidget {
                 fontSize: responsiveValue(
                   context,
                   defaultVal: 20,
-                  tabletVal: 15,
+                  tabletVal: 14,
                   mobileVal: 10,
-                  desktopVal: 20,
+                  desktopVal: 18,
                 ),
               ),
             ),

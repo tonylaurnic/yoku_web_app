@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 import 'package:yoku_web_app/models/products_models.dart';
 
 class ProductCardWidget extends StatelessWidget {
@@ -12,50 +11,49 @@ class ProductCardWidget extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: SizedBox(
-        height: 80,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      product.name,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text(
-                      maxLines: 3,
-                      overflow: TextOverflow.fade,
-                      product.description,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Text(
-                '€ ${product.price.toStringAsFixed(2)}',
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+    // return  SizedBox(
+    //     height: 80,
+    //     child: Padding(
+    //       padding: const EdgeInsets.all(8.0),
+    //       child: Row(
+    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //         children: [
+    //           Expanded(
+    //             child: Column(
+    //               crossAxisAlignment: CrossAxisAlignment.start,
+    //               children: [
+    //                 Text(
+    //                   product.name,
+    //                   style: const TextStyle(
+    //                     fontSize: 14,
+    //                     fontWeight: FontWeight.w700,
+    //                   ),
+    //                 ),
+    //                 Text(
+    //                   maxLines: 3,
+    //                   overflow: TextOverflow.fade,
+    //                   product.description,
+    //                   style: const TextStyle(
+    //                     fontSize: 12,
+    //                     fontStyle: FontStyle.italic,
+    //                   ),
+    //                 ),
+    //               ],
+    //             ),
+    //           ),
+    //           Text(
+    //             '€ ${product.price.toStringAsFixed(2)}',
+    //             style: const TextStyle(
+    //               fontSize: 14,
+    //               fontWeight: FontWeight.w700,
+    //             ),
+    //           ),
+    //         ],
+    //       ),
+    //     ),
+    //   ),
       //desktop
-      desktop: SizedBox(
+    return SizedBox(
         height: 60,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -92,7 +90,7 @@ class ProductCardWidget extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      
     );
   }
 }
