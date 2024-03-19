@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:go_router/go_router.dart';
 import 'package:yoku_web_app/router/app_pages.dart';
 import 'package:yoku_web_app/widgets/text/text_button.dart';
 
@@ -28,7 +27,7 @@ class DialogBoxScreen extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                context.pop();
+                Get.back();
               },
               child: SizedBox(
                 height: 80,

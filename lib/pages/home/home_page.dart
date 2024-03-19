@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double heightContainer = 500;
+    const double heightContainer = 700;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
@@ -121,28 +121,14 @@ class HomePage extends StatelessWidget {
 
                       imageHeight: 100,
                     ),
-                    SizedBox(
-                      height: responsiveValue(
-                        context,
-                        defaultVal: 20,
-                        mobileVal: 20,
-                        tabletVal: 20,
-                        desktopVal: 50,
-                      ),
-                    ),
+                    const SizedBox(height: 20),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 const CarouseWidget(),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 const FooterWidget(),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),

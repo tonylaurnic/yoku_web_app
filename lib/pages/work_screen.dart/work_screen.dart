@@ -17,10 +17,7 @@ class WorkScreen extends StatelessWidget {
                     child: Column(
                   children: [],
                 )
-                    //  ScreenTypeLayout(
-                    //   mobile: const HomeContentMobile(),
-                    //   desktop: const HomeContentDesktop(),
-                    // ),
+                  
                     ),
               ],
             ),

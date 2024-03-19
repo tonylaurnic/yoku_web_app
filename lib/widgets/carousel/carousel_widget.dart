@@ -14,6 +14,7 @@ class _CarouseWidgetState extends State<CarouseWidget> {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
+      disableGesture: true,
       options: CarouselOptions(
           enlargeStrategy: CenterPageEnlargeStrategy.scale,
           height: responsiveValue(
@@ -33,9 +34,13 @@ class _CarouseWidgetState extends State<CarouseWidget> {
           aspectRatio: 16 / 9,
           enlargeCenterPage: true),
       items: ImageModel.images
-          .map((imageUrl) => Image(
-                image: AssetImage(imageUrl.imageUrl),
-              ))
+          .map(
+            (imageUrl) => Image(
+              image: AssetImage(
+                imageUrl.imageUrl,
+              ),
+            ),
+          )
           .toList(),
     );
   }

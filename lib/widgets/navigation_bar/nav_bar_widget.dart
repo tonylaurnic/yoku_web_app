@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:yoku_web_app/constants/app_colors.dart';
 import 'package:yoku_web_app/router/app_pages.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/drower_element.dart';
-import 'package:yoku_web_app/widgets/navigation_bar/navbar_item.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/logo.dart';
 
 class NavigationBarWidget extends StatelessWidget {
@@ -17,19 +16,19 @@ class NavigationBarWidget extends StatelessWidget {
       color: backgroundColor.withOpacity(0.8),
       height: 120,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          NavBarItem(
-            'PRENOTA',
-            onTap: () => Get.toNamed(Routes.booking),
-          ),
-          // GestureDetector(
-          //     child: const Text(
-          //   'EN',
-          //   style: TextStyle(color: Colors.black),
-          // )),
+          // ResponsiveVisibility(
+          //   visible: false,
+          //   visibleConditions: const [
+          //     condition.Condition.largerThan(name: DESKTOP),
+          //   ],
+          //   child: NavBarItem(
+          //     'PRENOTA',
+          //     onTap: () => Get.toNamed(Routes.booking),
+          //   ),
+          // ),
           const NavBarLogo(),
+          const Spacer(),
           DrowerElement(
             onPressed: () => Get.toNamed(Routes.dialogbox),
           ),

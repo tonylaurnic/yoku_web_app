@@ -45,8 +45,9 @@ class PresentationDetails extends StatelessWidget {
           Text(
             content,
             style: TextStyle(
+              // fontFamily: "assets/M_PLUS_1p/MPLUS1p-Thin.ttf",
               color: Colors.black,
-              letterSpacing: 3,
+              letterSpacing: 2,
               fontSize: responsiveValue(
                 context,
                 defaultVal: 16,

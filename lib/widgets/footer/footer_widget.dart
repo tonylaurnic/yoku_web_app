@@ -14,7 +14,7 @@ class FooterWidget extends StatelessWidget {
       height: responsiveValue(
         context,
         defaultVal: 1200,
-        tabletVal: null,
+        tabletVal: 800,
         mobileVal: null,
         desktopVal: 300,
       ),
@@ -32,9 +32,9 @@ class FooterWidget extends StatelessWidget {
             rowFit: FlexFit.loose,
             child: FooterItem(
               title: 'DOVE SIAMO',
-              subtitle: 'VIALE ALDO MORO',
-              desc1: '183',
-              desc2: 'OLBIA',
+              subtitle: 'LA TERZA SPIAGGIA',
+              desc1: '',
+              desc2: 'GOLGO ARANCI',
             ),
           ),
           ResponsiveRowColumnItem(
@@ -50,7 +50,7 @@ class FooterWidget extends StatelessWidget {
             rowFit: FlexFit.loose,
             child: FooterItem(
               title: 'CONTATTI',
-              subtitle: '+39 388 459 8851',
+              subtitle: '+39 388 387 9487',
               desc1: '',
               desc2: '',
             ),

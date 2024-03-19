@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Yoku Sushi',
       theme: ThemeData(
-        fontFamily: "M_PLUS",
+        fontFamily: "assets/M_PLUS_1p/MPLUS1p-Regular.ttf",
         primaryColor: backgroundColor,
         colorScheme: const ColorScheme.light(
           primary: backgroundColor,
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // Theme.of(context).textTheme.apply(),
-      initialRoute: AppPages.INITIAL,
+      initialRoute: AppPages.initial,
       getPages: AppPages.routes,
 
       builder: (context, child) {
