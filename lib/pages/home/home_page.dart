@@ -125,7 +125,10 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const CarouseWidget(),
+                CarouseWidget(
+                  containerHeight: heightContainer * 0.5,
+                  containerWidth: width * 0.4,
+                ),
                 const SizedBox(height: 20),
                 const FooterWidget(),
                 const SizedBox(height: 20),

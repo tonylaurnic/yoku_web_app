@@ -40,7 +40,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       ? HomePictureWidget(
                           topPadding: 0,
                           heigtContainer:
-                              MediaQuery.of(context).size.height * 0.5,
+                              MediaQuery.of(context).size.height * 0.2,
                           widithContainer:
                               MediaQuery.of(context).size.height * 1.7,
                           image: 'assets/menu.jpg',
