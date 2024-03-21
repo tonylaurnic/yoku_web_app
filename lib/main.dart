@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:yoku_web_app/bindings/category_binding.dart';
 import 'package:yoku_web_app/bindings/home_binding.dart';
+import 'package:yoku_web_app/bindings/pdf_binding.dart';
 import 'package:yoku_web_app/bindings/product_bindinbg.dart';
 import 'package:yoku_web_app/constants/app_colors.dart';
 import 'package:yoku_web_app/router/app_pages.dart';
@@ -14,6 +15,7 @@ Future<void> main() async {
   CategoryBinding().dependencies();
   ProductBinding().dependencies();
   HomeBinding().dependencies();
+  PdfBinding().dependencies();
 
   runApp(const MyApp());
 
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Yoku Sushi',
       theme: ThemeData(
-        fontFamily: "assets/M_PLUS_1p/MPLUS1p-Regular.ttf",
+        fontFamily: 'assets/M_PLUS_1p/MPLUS1p-Medium.ttf',
         primaryColor: backgroundColor,
         colorScheme: const ColorScheme.light(
           primary: backgroundColor,

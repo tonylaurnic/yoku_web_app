@@ -26,6 +26,12 @@ class _MenuScreenState extends State<MenuScreen> {
     var product = productController.products;
     var category = categoryController.category;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          pdfController.generatePdfAndDownload();
+        },
+        child: const Icon(Icons.download),
+      ),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -125,6 +131,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       },
                     ),
                   ),
+
                   // const FooterWidget()
                 ],
               ),
