@@ -6,7 +6,7 @@ import 'package:yoku_web_app/pages/dialog_box/dialog_box.dart';
 import 'package:yoku_web_app/pages/home/home_page.dart';
 import 'package:yoku_web_app/pages/menu/menu_screen.dart';
 import 'package:yoku_web_app/pages/pfilosophy/phylosphy_screen.dart';
-import 'package:yoku_web_app/pages/work_screen.dart/work_screen.dart';
+import 'package:yoku_web_app/pages/location_screen.dart/location_screen.dart';
 
 part 'app_routes.dart';
 
@@ -47,7 +47,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.work,
-      page: () => const WorkScreen(),
+      page: () => const LocationScreen(),
     ),
   ];
 }
