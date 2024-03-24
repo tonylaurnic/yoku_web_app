@@ -22,7 +22,7 @@ class FooterWidget extends StatelessWidget {
         layout: ResponsiveBreakpoints.of(context).isDesktop
             ? ResponsiveRowColumnType.ROW
             : ResponsiveRowColumnType.COLUMN,
-        rowMainAxisAlignment: MainAxisAlignment.center,
+        rowMainAxisAlignment: MainAxisAlignment.spaceAround,
         rowCrossAxisAlignment: CrossAxisAlignment.stretch,
         columnMainAxisAlignment: MainAxisAlignment.center,
         columnPadding: const EdgeInsets.symmetric(horizontal: 10),

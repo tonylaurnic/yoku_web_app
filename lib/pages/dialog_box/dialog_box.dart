@@ -75,7 +75,7 @@ class DialogBoxScreen extends StatelessWidget {
             ),
             TextButtonWidget(
               colour: Colors.black,
-              text: 'lavora con noi',
+              text: 'locatia',
               onPressed: () => Get.toNamed(Routes.work),
             ),
             const SizedBox(height: 50),
