@@ -37,13 +37,9 @@ class ContactsScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 25),
                       child: PresentationDetails(
-                        heigtContainer:
-                            MediaQuery.of(context).size.height * 1.5,
-                        widithContainer:
-                            MediaQuery.of(context).size.width * 0.4,
                         title: 'CONTATTI',
                         content:
                             'Viale Aldo Moro 183\n07026 Olbia (SS)\nInformazioni e prenotazioni:\n+39 388 459 8851',

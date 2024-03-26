@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
-import 'package:yoku_web_app/constants/dynalic_values.dart';
-import 'package:yoku_web_app/constants/strings_home.dart';
+import 'package:yoku_web_app/pages/home/sections/section_one.dart';
+import 'package:yoku_web_app/pages/home/sections/section_three.dart';
+import 'package:yoku_web_app/pages/home/sections/section_two.dart';
 import 'package:yoku_web_app/widgets/carousel/carousel_widget.dart';
 import 'package:yoku_web_app/widgets/centred_view.dart';
-import 'package:yoku_web_app/widgets/course_widget/details_home_widget.dart';
 import 'package:yoku_web_app/widgets/footer/footer_widget.dart';
 import 'package:yoku_web_app/widgets/navigation_bar/nav_bar_widget.dart';
-import 'package:yoku_web_app/widgets/picture_widget/home_picture_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -86,186 +84,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: ListView(
               controller: _scrollController,
               children: [
-                WhenShownListener(
-                  onWidgetShown: () => controllers[0].forward(),
-                  initOffset: 100,
-                  child: AnimatedBuilder(
-                    animation: _scrollController,
-                    builder: (context, child) {
-                      return AnimatedOpacity(
-                        opacity: widgetBooleans[1] ? _animation.value : 1,
-                        duration: const Duration(seconds: 1),
-                        child: child,
-                      );
-                    },
-                    child: HomePictureWidget(
-                      topPadding: 120,
-                      heigtContainer: responsiveValue(context,
-                          defaultVal: 400,
-                          tabletVal: 500,
-                          mobileVal: 400,
-                          desktopVal: heightContainer),
-                      widithContainer: responsiveValue(context,
-                          defaultVal: width * 0.4,
-                          tabletVal: width * 0.9,
-                          mobileVal: width * 0.9,
-                          desktopVal: width * 0.4),
-                      image: 'assets/output-onlinepngtools-7.png',
-                    ),
-                  ),
+                const SizedBox(height: heightContainer),
+                SectionOne(
+                  firstTime: widgetBooleans[0],
+                  scrollController: _scrollController,
                 ),
-                WhenShownListener(
-                  onWidgetShown: () => controllers[1].forward(),
-                  initOffset: 100,
-                  child: AnimatedBuilder(
-                    animation: _scrollController,
-                    builder: (context, child) {
-                      return AnimatedOpacity(
-                        opacity:
-                            _scrollController.offset > heightContainer ? 0 : 1,
-                        duration: const Duration(seconds: 1),
-                        child: child,
-                      );
-                    },
-                    child: PresentationDetails(
-                      heigtContainer: MediaQuery.of(context).size.height * 0.5,
-                      widithContainer: MediaQuery.of(context).size.height * 1.7,
-                      title: HomeStrings.title,
-                      content: HomeStrings.content_1,
-                    ),
-                  ),
+                SectionTwo(
+                  controllers: controllers,
+                  heightContainer: heightContainer,
+                  scrollController: _scrollController,
+                  animation: _animation,
+                  width: width,
                 ),
-                WhenShownListener(
-                  onWidgetShown: () => controllers[2].forward(),
-                  initOffset: 0,
-                  child: SizedBox(
-                    height: responsiveValue(
-                      context,
-                      defaultVal: 400,
-                      tabletVal: 820,
-                      mobileVal: 820,
-                      desktopVal: heightContainer,
-                    ),
-                    child: ResponsiveRowColumn(
-                      layout: ResponsiveBreakpoints.of(context).isDesktop
-                          ? ResponsiveRowColumnType.ROW
-                          : ResponsiveRowColumnType.COLUMN,
-                      rowMainAxisAlignment: MainAxisAlignment.spaceAround,
-                      rowCrossAxisAlignment: CrossAxisAlignment.stretch,
-                      rowPadding: const EdgeInsets.symmetric(horizontal: 10),
-                      children: [
-                        ResponsiveRowColumnItem(
-                          rowFit: FlexFit.loose,
-                          child: AnimatedBuilder(
-                            animation: _scrollController,
-                            builder: (context, child) {
-                              return Transform.translate(
-                                offset: Offset(
-                                  (_animation.value - 1) * width * 0.5,
-                                  0,
-                                ),
-                                child: child,
-                              );
-                            },
-                            child: AnimatedBuilder(
-                              animation: _scrollController,
-                              builder: (context, child) {
-                                return AnimatedOpacity(
-                                  opacity: _scrollController.offset >
-                                          heightContainer * 3
-                                      ? 0
-                                      : 1,
-                                  duration: const Duration(seconds: 1),
-                                  child: child,
-                                );
-                              },
-                              child: HomePictureWidget(
-                                heigtContainer: responsiveValue(
-                                  context,
-                                  defaultVal: 1200,
-                                  tabletVal: 400,
-                                  mobileVal: 400,
-                                  desktopVal: 400,
-                                ),
-                                widithContainer: responsiveValue(
-                                  context,
-                                  defaultVal: width * 0.4,
-                                  tabletVal: width * 0.9,
-                                  mobileVal: width * 0.9,
-                                ),
-                                image: 'assets/logo_fish.PNG',
-                              ),
-                            ),
-                          ),
-                        ),
-                        ResponsiveRowColumnItem(
-                          child: AnimatedBuilder(
-                            animation: _scrollController,
-                            builder: (context, child) {
-                              return Transform.translate(
-                                offset: Offset(
-                                  (1 - _animation.value) * width * 0.5,
-                                  0,
-                                ),
-                                child: child,
-                              );
-                            },
-                            child: PresentationDetails(
-                              heigtContainer: responsiveValue(
-                                context,
-                                defaultVal: 1200,
-                                tabletVal: 400,
-                                mobileVal: 400,
-                                desktopVal: 400,
-                              ),
-                              widithContainer: responsiveValue(
-                                context,
-                                defaultVal: width * 0.9,
-                                tabletVal: width * 0.9,
-                                mobileVal: width * 0.9,
-                                desktopVal: width * 0.4,
-                              ),
-                              title: 'UNA CUCINA \nINNOVATIVA',
-                              content: HomeStrings.content_2,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                SectionThree(
+                  controllers: controllers,
+                  scrollController: _scrollController,
+                  widgetBooleans: widgetBooleans,
+                  heightContainer: heightContainer,
+                  width: width,
                 ),
-                WhenShownListener(
-                  onWidgetShown: () => controllers[3].forward(),
-                  initOffset: 0,
-                  child: AnimatedBuilder(
-                    animation: _scrollController,
-                    builder: (context, child) {
-                      return AnimatedOpacity(
-                        opacity: widgetBooleans[3]
-                            ? _scrollController.offset > heightContainer * 2
-                                ? 1
-                                : 0
-                            : 1,
-                        duration: const Duration(seconds: 3),
-                        child: child,
-                      );
-                    },
-                    child: HomePictureWidget(
-                      heigtContainer: responsiveValue(context,
-                          defaultVal: 400,
-                          tabletVal: 400,
-                          mobileVal: 400,
-                          desktopVal:
-                              heightContainer), // MediaQuery.of(context).size.height * 0.5,
-                      widithContainer: width,
-                      image: 'assets/menu.jpg',
-
-                      imageHeight: 100,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
                 CarouseWidget(
                   containerHeight: heightContainer * 0.5,
                   containerWidth: width * 0.4,
